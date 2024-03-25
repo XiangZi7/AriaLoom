@@ -3,27 +3,28 @@ import SideBar from "./components/sidebar";
 import Bread from "./components/bread";
 import Footer from "./components/footer/footer";
 import { Outlet } from "react-router-dom";
+import { ScrollShadow } from "@nextui-org/react";
 
 const DefaultLayout = () => {
   return (
-    <div className="relative flex flex-col min-h-screen bg-white dark:bg-black transition-bg">
+    <div className="flex flex-col bg-gray-100 dark:bg-black">
       <div className="absolute inset-0 overflow-hidden">
         <div className="jumbo absolute -inset-[10px] opacity-20  dark:opacity-50" />
       </div>
       {/* Header */}
       <Header />
-
       {/* Content Container */}
-      <div className="relative flex flex-col md:flex-row gap-2 flex-grow">
+      <section className="flex flex-col md:flex-row gap-2 h-[calc(100vh-142px)]">
         {/* Sidebar */}
         <SideBar />
         {/* Main Content */}
-        <main className="flex-1">
+        <main className="w-full overflow-auto ">
           <Bread />
-          <Outlet />
+          <ScrollShadow className="h-[calc(100%-60px)]">
+            <Outlet />
+          </ScrollShadow>
         </main>
-      </div>
-
+      </section>
       {/* Footer */}
       <Footer />
     </div>

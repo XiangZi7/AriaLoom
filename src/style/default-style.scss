@@ -68,3 +68,23 @@ body {
 .dark .jumbo::after {
     background-image: var(--stripesDark), var(--rainbow);
 }
+
+
+::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: 226, 226, 226;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(246, 247, 248);
+    border-radius: 10px;
+}
+.dark ::-webkit-scrollbar-track {
+    background-color: rgb(56, 56, 56);
+    border-radius: 10px;
+}

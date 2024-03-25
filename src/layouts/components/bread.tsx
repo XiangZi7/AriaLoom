@@ -4,7 +4,7 @@ const Bread = () => {
   return (
     <>
       {/* bread */}
-      <div className="flex h-14 items-center border-b border-gray-100 dark:border-default-100 p-4 md:p-6">
+      <div className="flex h-14 items-center p-4 md:p-6">
         <div className="flex items-center gap-4 shrink-0 w-14 md:w-20">
           <h1 className="text-lg font-bold dark:opacity-80 dark:text-white">
             Home

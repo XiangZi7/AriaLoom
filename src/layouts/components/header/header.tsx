@@ -6,6 +6,7 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
+  Button,
   Tooltip,
 } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
@@ -15,11 +16,7 @@ const header = () => {
   return (
     <>
       {/* Header */}
-      <Navbar
-        className="bg-transparent border-b border-gray-100 dark:border-default-100"
-        maxWidth="full"
-        isBlurred={false}
-      >
+      <Navbar className="bg-transparent" maxWidth="full" isBlurred={false}>
         <NavbarContent justify="start">
           <NavbarBrand className="mr-4">
             <div className="flex items-center gap-4 shrink-0 w-36">
@@ -33,27 +30,35 @@ const header = () => {
           </NavbarBrand>
           <NavbarContent className="hidden sm:flex gap-3">
             <NavbarItem>
-              <Link color="foreground" href="#">
-                Features
-              </Link>
+              <Button
+                href="https://github.com/nextui-org/nextui"
+                as={Link}
+                showAnchorIcon
+                variant="shadow"
+                className="bg-default-400/20 dark:bg-default-500/30"
+                startContent={<Icon icon="devicon:github" />}
+              >
+                Repository
+              </Button>
             </NavbarItem>
             <NavbarItem isActive>
-              <Link href="#" aria-current="page" color="secondary">
-                Customers
-              </Link>
-            </NavbarItem>
-            <NavbarItem>
-              <Link color="foreground" href="#">
-                Integrations
-              </Link>
+              <Button
+                href="https://github.com/nextui-org/nextui"
+                as={Link}
+                showAnchorIcon
+                variant="shadow"
+                className="bg-default-400/20 dark:bg-default-500/30"
+                startContent={<Icon icon="devicon:github" />}
+              >
+                About me
+              </Button>
             </NavbarItem>
           </NavbarContent>
         </NavbarContent>
-
         <NavbarContent as="div" className="items-center" justify="end">
           <Input
             classNames={{
-              base: "max-w-full sm:max-w-[10rem] h-10",
+              base: "max-w-full sm:max-w-[15rem] h-10",
               mainWrapper: "h-full",
               input: "text-small",
               inputWrapper:

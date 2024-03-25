@@ -5,6 +5,7 @@ import { CircularProgress } from "@nextui-org/react";
 const Layouts = lazy(() => import("@/layouts"));
 const Home = lazy(() => import("@/pages/home"));
 const Mini = lazy(() => import("@/pages/mini"));
+const Theme = lazy(() => import("@/pages/theme"));
 
 // 加载提示组件
 const LoadingTip = (Component: ReactElement): ReactElement => (
@@ -30,11 +31,10 @@ const rootRouter: RouteObject[] = [
       {
         path: "mini",
         element: LoadingTip(<Mini />),
-        // meta: {
-        //   requiresAuth: true,
-        //   title: "首页",
-        //   key: "home",
-        // },
+      },
+      {
+        path: "theme",
+        element: LoadingTip(<Theme />),
       },
     ],
   },
