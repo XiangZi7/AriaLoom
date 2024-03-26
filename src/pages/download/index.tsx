@@ -11,7 +11,8 @@ const DownLoad = () => {
       type: "mp3",
       size: "3.2MB",
       status: "download",
-    }, // 状态可以是 "download", "pause", "completed"
+    }, 
+    // 状态可以是 "download", "pause", "completed"
   ]);
   const [value] = useState(50);
 
