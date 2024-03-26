@@ -6,7 +6,7 @@ const Footer = () => {
   const [isPlay, setIsPlay] = useState<boolean>(false);
   return (
     <>
-      <footer className="bg-gray-100 dark:bg-black fixed inset-x-0 bottom-0 flex h-20 shrink-0 items-center px-4 z-10">
+      <footer className="flex items-center p-4 z-10">
         <div className="flex flex-col md:grid md:grid-cols-3 md:items-center w-full justify-between space-y-4 md:space-y-0">
           <div className="flex items-center gap-4 justify-center md:justify-start">
             <Avatar

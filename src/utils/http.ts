@@ -34,7 +34,7 @@ instance.interceptors.request.use(
     NProgress.start();
     return config;
   },
-  (error): Promise<any> => Promise.reject(error),
+  (error) => Promise.reject(error),
 );
 
 // 响应拦截器

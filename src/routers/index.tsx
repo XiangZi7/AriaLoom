@@ -6,6 +6,11 @@ const Layouts = lazy(() => import("@/layouts"));
 const Home = lazy(() => import("@/pages/home"));
 const Mini = lazy(() => import("@/pages/mini"));
 const Theme = lazy(() => import("@/pages/theme"));
+const Search = lazy(() => import("@/pages/search"));
+const Albums = lazy(() => import("@/pages/albums"));
+const Playlists = lazy(() => import("@/pages/playlists"));
+const Radio = lazy(() => import("@/pages/radio"));
+const Download = lazy(() => import("@/pages/download"));
 
 // 加载提示组件
 const LoadingTip = (Component: ReactElement): ReactElement => (
@@ -35,6 +40,26 @@ const rootRouter: RouteObject[] = [
       {
         path: "theme",
         element: LoadingTip(<Theme />),
+      },
+      {
+        path: "search",
+        element: LoadingTip(<Search />),
+      },
+      {
+        path: "albums",
+        element: LoadingTip(<Albums />),
+      },
+      {
+        path: "playlists",
+        element: LoadingTip(<Playlists />),
+      },
+      {
+        path: "radio",
+        element: LoadingTip(<Radio />),
+      },
+      {
+        path: "download",
+        element: LoadingTip(<Download />),
       },
     ],
   },

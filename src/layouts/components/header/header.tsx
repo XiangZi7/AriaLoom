@@ -31,10 +31,11 @@ const header = () => {
           <NavbarContent className="hidden sm:flex gap-3">
             <NavbarItem>
               <Button
-                href="https://github.com/nextui-org/nextui"
+                href="https://github.com/XiangZi7/AriaLoom"
                 as={Link}
                 showAnchorIcon
                 variant="shadow"
+                isExternal
                 className="bg-default-400/20 dark:bg-default-500/30"
                 startContent={<Icon icon="devicon:github" />}
               >
@@ -43,8 +44,9 @@ const header = () => {
             </NavbarItem>
             <NavbarItem isActive>
               <Button
-                href="https://github.com/nextui-org/nextui"
+                href="https://github.com/XiangZi7"
                 as={Link}
+                isExternal
                 showAnchorIcon
                 variant="shadow"
                 className="bg-default-400/20 dark:bg-default-500/30"
@@ -56,6 +58,16 @@ const header = () => {
           </NavbarContent>
         </NavbarContent>
         <NavbarContent as="div" className="items-center" justify="end">
+          <div className="flex items-center gap-1">
+            <Icon
+              icon="fluent:weather-hail-day-20-regular"
+              className="text-lg"
+            />
+            27°
+          </div>
+          <Icon icon="material-symbols:bluetooth" className="text-lg" />
+          <Icon icon="material-symbols:wifi" className="text-lg" />
+          <Icon icon="ic:baseline-battery-charging-80" className="text-lg" />
           <Input
             classNames={{
               base: "max-w-full sm:max-w-[15rem] h-10",
