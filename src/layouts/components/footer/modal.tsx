@@ -96,8 +96,7 @@ const PlayerModal = forwardRef((props, ref) => {
                       className="h-[600px] w-full text-center"
                     >
                       <ul>
-                        <li>123456</li>
-                        <li>123456</li>
+                        <li>歌词部分</li>
                       </ul>
                     </ScrollShadow>
                   </div>

@@ -1,5 +1,5 @@
 import { Button, Image } from "@nextui-org/react";
-
+import { importImage } from "@/utils/hrefIamge";
 export default function Home() {
   return (
     <div className="p-2">
@@ -28,19 +28,49 @@ export default function Home() {
           </p>
           <Button className="bg-orange-500 text-white">View album</Button>
           <div className="flex space-x-4">
-            <Image isZoomed isBlurred width={100} src="src/assets/home6.jpg" />
-            <Image isZoomed isBlurred width={100} src="src/assets/home5.jpg" />
-            <Image isZoomed isBlurred width={100} src="src/assets/home4.jpg" />
-            <Image isZoomed isBlurred width={100} src="src/assets/home7.jpg" />
+            <Image
+              isZoomed
+              isBlurred
+              width={100}
+              src={importImage("home6.jpg")}
+            />
+            <Image
+              isZoomed
+              isBlurred
+              width={100}
+              src={importImage("home5.jpg")}
+            />
+            <Image
+              isZoomed
+              isBlurred
+              width={100}
+              src={importImage("home4.jpg")}
+            />
+            <Image
+              isZoomed
+              isBlurred
+              width={100}
+              src={importImage("home7.jpg")}
+            />
           </div>
         </div>
         <div className="flex-1 flex items-center justify-center gap-4">
           <div className="flex flex-col gap-4">
-            <Image isBlurred isZoomed width={240} src="src/assets/home2.png" />
-            <Image isBlurred isZoomed width={240} src="src/assets/home3.png" />
+            <Image
+              isBlurred
+              isZoomed
+              width={240}
+              src={importImage("home2.png")}
+            />
+            <Image
+              isBlurred
+              isZoomed
+              width={240}
+              src={importImage("home3.png")}
+            />
           </div>
           <div className="h-auto max-w-md">
-            <Image isBlurred isZoomed src="src/assets/home1.png" />
+            <Image isBlurred isZoomed src={importImage("home1.png")} />
           </div>
         </div>
       </div>
