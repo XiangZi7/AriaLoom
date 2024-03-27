@@ -66,16 +66,16 @@ const Theme = () => {
               color="success"
               value={darkMode}
               onValueChange={handleThemeChange}
-              thumbIcon={({ isSelected, className }) =>
-                isSelected ? (
-                  <Icon icon="ph:sun-light" className={className} />
-                ) : (
-                  <Icon
-                    icon="material-symbols:dark-mode-outline"
-                    className={className}
-                  />
-                )
-              }
+              thumbIcon={({ isSelected, className }) => (
+                <Icon
+                  icon={`${
+                    isSelected
+                      ? "material-symbols:dark-mode-outline"
+                      : "emojione:sun"
+                  }`}
+                  className={className}
+                />
+              )}
             />
           </CardBody>
         </Card>

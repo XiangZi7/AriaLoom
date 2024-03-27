@@ -1,9 +1,15 @@
 import { Button, Slider, Avatar } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Volume from "./volume";
+import Modal from "./modal";
+import { ModalHandle } from "@/interface/player";
 const Footer = () => {
   const [isPlay, setIsPlay] = useState<boolean>(false);
+  const ModalRef = useRef<ModalHandle>(null);
+  const showModal = () => {
+    ModalRef.current?.onOpen();
+  };
   return (
     <>
       <footer className="flex items-center p-4 z-10">
@@ -14,6 +20,7 @@ const Footer = () => {
               alt="Avatar"
               size="lg"
               src="https://nextui.org/images/album-cover.png"
+              onClick={showModal}
             />
             <div className="grid gap-0.5">
               <p className="text-sm font-semibold text-center md:text-left">
@@ -86,6 +93,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+      <Modal ref={ModalRef} />
     </>
   );
 };
