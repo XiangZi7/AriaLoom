@@ -26,7 +26,7 @@
 .vinyl {
     animation: spin 2s linear infinite;
     transition: all 500ms;
-    background-image: url('src/assets/vinyl.png'), url('https://nextui.org/images/album-cover.png');
+    background-image: url('@/assets/vinyl.png'), url('https://nextui.org/images/album-cover.png');
     background-position: center, center;
     background-size: cover, 40% auto;
     background-repeat: no-repeat;
