@@ -1,9 +1,6 @@
-import axios, {
-  AxiosInstance,
-  AxiosResponse,
-  InternalAxiosRequestConfig,
-} from "axios";
-import NProgress from "@/config/nprogress";
+import axios, { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+
+import NProgress from '@/config/nprogress';
 
 export interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
   noLoading?: boolean;
@@ -28,7 +25,7 @@ instance.interceptors.request.use(
     // 添加或修改params
     Object.assign(config.params, {
       timestamp: Date.now(),
-      realIP: "116.25.146.177",
+      realIP: '116.25.146.177',
     });
     // 开启进度条
     NProgress.start();

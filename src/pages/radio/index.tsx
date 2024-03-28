@@ -5,10 +5,7 @@ const Radio = () => {
       <div className="mt-6 flex flex-col items-center">
         {/* 假设这里每一个条目是一个电台 */}
         {[1, 2, 3, 4].map((radio) => (
-          <div
-            key={radio}
-            className=" shadow rounded-lg w-full md:w-2/3 p-4 mb-4 flex items-center"
-          >
+          <div key={radio} className=" shadow rounded-lg w-full md:w-2/3 p-4 mb-4 flex items-center">
             <img
               src="https://via.placeholder.com/100"
               alt="Radio Logo"

@@ -1,16 +1,17 @@
-import { useRoutes, RouteObject, Navigate } from "react-router-dom";
-import { lazy, Suspense, ReactElement } from "react";
-import { CircularProgress } from "@nextui-org/react";
+import { lazy, Suspense, ReactElement } from 'react';
+import { useRoutes, RouteObject, Navigate } from 'react-router-dom';
 
-const Layouts = lazy(() => import("@/layouts"));
-const Home = lazy(() => import("@/pages/home"));
-const Mini = lazy(() => import("@/pages/mini"));
-const Theme = lazy(() => import("@/pages/theme"));
-const Search = lazy(() => import("@/pages/search"));
-const Albums = lazy(() => import("@/pages/albums"));
-const Playlists = lazy(() => import("@/pages/playlists"));
-const Radio = lazy(() => import("@/pages/radio"));
-const Download = lazy(() => import("@/pages/download"));
+import { CircularProgress } from '@nextui-org/react';
+
+const Layouts = lazy(() => import('@/layouts'));
+const Home = lazy(() => import('@/pages/home'));
+const Mini = lazy(() => import('@/pages/mini'));
+const Theme = lazy(() => import('@/pages/theme'));
+const Search = lazy(() => import('@/pages/search'));
+const Albums = lazy(() => import('@/pages/albums'));
+const Playlists = lazy(() => import('@/pages/playlists'));
+const Radio = lazy(() => import('@/pages/radio'));
+const Download = lazy(() => import('@/pages/download'));
 
 // 加载提示组件
 const LoadingTip = (Component: ReactElement): ReactElement => (
@@ -19,13 +20,13 @@ const LoadingTip = (Component: ReactElement): ReactElement => (
 
 const rootRouter: RouteObject[] = [
   {
-    path: "/",
+    path: '/',
     element: <Layouts />,
     children: [
       // 重定向设置：当访问 "/" 时自动跳转到 "/home"
-      { path: "/", element: <Navigate to="/home" replace /> },
+      { path: '/', element: <Navigate to="/home" replace /> },
       {
-        path: "home",
+        path: 'home',
         element: LoadingTip(<Home />),
         // meta: {
         //   requiresAuth: true,
@@ -34,31 +35,31 @@ const rootRouter: RouteObject[] = [
         // },
       },
       {
-        path: "mini",
+        path: 'mini',
         element: LoadingTip(<Mini />),
       },
       {
-        path: "theme",
+        path: 'theme',
         element: LoadingTip(<Theme />),
       },
       {
-        path: "search",
+        path: 'search',
         element: LoadingTip(<Search />),
       },
       {
-        path: "albums",
+        path: 'albums',
         element: LoadingTip(<Albums />),
       },
       {
-        path: "playlists",
+        path: 'playlists',
         element: LoadingTip(<Playlists />),
       },
       {
-        path: "radio",
+        path: 'radio',
         element: LoadingTip(<Radio />),
       },
       {
-        path: "download",
+        path: 'download',
         element: LoadingTip(<Download />),
       },
     ],

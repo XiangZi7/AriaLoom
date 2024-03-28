@@ -1,10 +1,10 @@
-import TablePro from "@/components/TablePro"
+import TablePro from '@/components/TablePro';
 const Search = () => {
-    return (
-        <>
-            <TablePro />
-        </>
-    )
-}
+  return (
+    <>
+      <TablePro />
+    </>
+  );
+};
 
-export default Search
+export default Search;

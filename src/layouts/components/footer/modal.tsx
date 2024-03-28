@@ -1,3 +1,6 @@
+import { MouseEventHandler, forwardRef, useImperativeHandle, useState } from 'react';
+
+import { Icon } from '@iconify/react';
 import {
   Modal,
   ModalContent,
@@ -6,18 +9,10 @@ import {
   ModalFooter,
   Button,
   useDisclosure,
-  Input,
   Avatar,
   ScrollShadow,
-} from "@nextui-org/react";
-import {
-  MouseEventHandler,
-  forwardRef,
-  useImperativeHandle,
-  useState,
-} from "react";
-import { Icon } from "@iconify/react";
-import "./modal.scss";
+} from '@nextui-org/react';
+import './modal.scss';
 
 const PlayerModal = forwardRef((props, ref) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
@@ -37,32 +32,17 @@ const PlayerModal = forwardRef((props, ref) => {
   };
   return (
     <>
-      <Modal
-        hideCloseButton
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        size="full"
-      >
+      <Modal hideCloseButton isOpen={isOpen} onOpenChange={onOpenChange} size="full">
         <ModalContent>
           {(onClose: MouseEventHandler<SVGSVGElement> | undefined) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
                 <div className="flex items-center justify-between">
-                  <Icon
-                    icon="material-symbols:arrow-back-ios"
-                    className="cursor-pointer"
-                    onClick={onClose}
-                  />
+                  <Icon icon="material-symbols:arrow-back-ios" className="cursor-pointer" onClick={onClose} />
                   <div className="flex gap-2 items-center">
-                    <Icon
-                      icon="material-symbols:bluetooth"
-                      className="text-lg"
-                    />
+                    <Icon icon="material-symbols:bluetooth" className="text-lg" />
                     <Icon icon="material-symbols:wifi" className="text-lg" />
-                    <Icon
-                      icon="ic:baseline-battery-charging-80"
-                      className="text-lg"
-                    />
+                    <Icon icon="ic:baseline-battery-charging-80" className="text-lg" />
                     <Avatar
                       className="transition-transform"
                       color="secondary"
@@ -77,11 +57,7 @@ const PlayerModal = forwardRef((props, ref) => {
                 <div className="flex flex-1 items-center justify-center">
                   <div className="flex-[50%] max-w-[50%]">
                     <div className="items-center justify-center flex">
-                      <div
-                        className={`music-player-container ${
-                          isPlaying ? "is-playing" : ""
-                        }`}
-                      >
+                      <div className={`music-player-container ${isPlaying ? 'is-playing' : ''}`}>
                         <div className="album">
                           <div className="album-art"></div>
                           <div className="vinyl"></div>
@@ -90,11 +66,7 @@ const PlayerModal = forwardRef((props, ref) => {
                     </div>
                   </div>
                   <div className="flex-[50%] max-w-[50%] md:flex hidden">
-                    <ScrollShadow
-                      hideScrollBar
-                      offset={100}
-                      className="h-[600px] w-full text-center"
-                    >
+                    <ScrollShadow hideScrollBar offset={100} className="h-[600px] w-full text-center">
                       <ul>
                         <li>歌词部分</li>
                       </ul>
@@ -117,5 +89,7 @@ const PlayerModal = forwardRef((props, ref) => {
     </>
   );
 });
+
+PlayerModal.displayName = 'PlayerModal';
 
 export default PlayerModal;

@@ -1,7 +1,4 @@
-interface ThemeState {
-    isDark: string;
-}
-
-export interface AppState {
-    themeStore: ThemeState;
+export interface ThemeState {
+  isDark: string;
+  updateDark: (params: string) => void;
 }

@@ -1,63 +1,64 @@
-import { Icon } from "@iconify/react";
-import { Badge } from "@nextui-org/react";
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+
+import { Icon } from '@iconify/react';
+import { Badge } from '@nextui-org/react';
 const SideBar = () => {
   const SideBarData = [
     {
-      Title: "Home",
-      icon: "bx:home",
-      router: "/home",
+      Title: 'Home',
+      icon: 'bx:home',
+      router: '/home',
       count: 0,
       children: [
         {
-          Title: "Music",
-          icon: "streamline:music-note-2",
-          router: "/search",
+          Title: 'Music',
+          icon: 'streamline:music-note-2',
+          router: '/search',
           count: 0,
         },
         {
-          Title: "Albums",
-          icon: "akar-icons:music-album",
-          router: "/albums",
+          Title: 'Albums',
+          icon: 'akar-icons:music-album',
+          router: '/albums',
           count: 0,
         },
         {
-          Title: "Playlists",
-          icon: "ph:playlist-bold",
-          router: "/playlists",
+          Title: 'Playlists',
+          icon: 'ph:playlist-bold',
+          router: '/playlists',
           count: 0,
         },
         {
-          Title: "Radio",
-          icon: "f7:dot-radiowaves-left-right",
-          router: "/radio",
+          Title: 'Radio',
+          icon: 'f7:dot-radiowaves-left-right',
+          router: '/radio',
           count: 0,
         },
         {
-          Title: "MiniPlayer",
-          icon: "bi:music-player",
-          router: "/mini",
+          Title: 'MiniPlayer',
+          icon: 'bi:music-player',
+          router: '/mini',
 
           count: 0,
         },
       ],
     },
     {
-      Title: "Settings",
-      icon: "ic:sharp-settings",
-      router: "/theme",
+      Title: 'Settings',
+      icon: 'ic:sharp-settings',
+      router: '/theme',
       count: 0,
       children: [
         {
-          Title: "Theme",
-          icon: "twemoji:paintbrush",
-          router: "/theme",
+          Title: 'Theme',
+          icon: 'twemoji:paintbrush',
+          router: '/theme',
           count: 0,
         },
         {
-          Title: "DownLoad",
-          icon: "tabler:arrow-bar-to-down",
-          router: "/download",
+          Title: 'DownLoad',
+          icon: 'tabler:arrow-bar-to-down',
+          router: '/download',
           count: 1,
         },
       ],

@@ -1,9 +1,11 @@
-import Header from "./components/header/header";
-import SideBar from "./components/sidebar";
-import Bread from "./components/bread";
-import Footer from "./components/footer/footer";
-import { Outlet } from "react-router-dom";
-import { ScrollShadow } from "@nextui-org/react";
+import { Outlet } from 'react-router-dom';
+
+import { ScrollShadow } from '@nextui-org/react';
+
+import Bread from './components/bread';
+import Footer from './components/footer/footer';
+import Header from './components/header/header';
+import SideBar from './components/sidebar';
 
 const DefaultLayout = () => {
   return (

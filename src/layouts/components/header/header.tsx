@@ -1,3 +1,4 @@
+import { Icon } from '@iconify/react';
 import {
   Input,
   Avatar,
@@ -8,9 +9,9 @@ import {
   Link,
   Button,
   Tooltip,
-} from "@nextui-org/react";
-import { Icon } from "@iconify/react";
-import DropDown from "./Dropdown";
+} from '@nextui-org/react';
+
+import DropDown from './Dropdown';
 
 const header = () => {
   return (
@@ -59,10 +60,7 @@ const header = () => {
         </NavbarContent>
         <NavbarContent as="div" className="items-center" justify="end">
           <div className="flex items-center gap-1">
-            <Icon
-              icon="fluent:weather-hail-day-20-regular"
-              className="text-lg"
-            />
+            <Icon icon="fluent:weather-hail-day-20-regular" className="text-lg" />
             27°
           </div>
           <Icon icon="material-symbols:bluetooth" className="text-lg" />
@@ -70,11 +68,10 @@ const header = () => {
           <Icon icon="ic:baseline-battery-charging-80" className="text-lg" />
           <Input
             classNames={{
-              base: "max-w-full sm:max-w-[15rem] h-10",
-              mainWrapper: "h-full",
-              input: "text-small",
-              inputWrapper:
-                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+              base: 'max-w-full sm:max-w-[15rem] h-10',
+              mainWrapper: 'h-full',
+              input: 'text-small',
+              inputWrapper: 'h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20',
             }}
             placeholder="Type to search..."
             size="sm"

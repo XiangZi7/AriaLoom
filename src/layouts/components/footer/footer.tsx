@@ -1,9 +1,12 @@
-import { Button, Slider, Avatar } from "@nextui-org/react";
-import { Icon } from "@iconify/react";
-import { useRef, useState } from "react";
-import Volume from "./volume";
-import Modal from "./modal";
-import { ModalHandle } from "@/interface/player";
+import { useRef, useState } from 'react';
+
+import { Icon } from '@iconify/react';
+import { Button, Slider, Avatar } from '@nextui-org/react';
+
+import Modal from './modal';
+import Volume from './volume';
+
+import { ModalHandle } from '@/interface/player';
 const Footer = () => {
   const [isPlay, setIsPlay] = useState<boolean>(false);
   const ModalRef = useRef<ModalHandle>(null);
@@ -23,27 +26,15 @@ const Footer = () => {
               onClick={showModal}
             />
             <div className="grid gap-0.5">
-              <p className="text-sm font-semibold text-center md:text-left">
-                Nick Drake
-              </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 text-center md:text-left">
-                Pink Moon
-              </p>
+              <p className="text-sm font-semibold text-center md:text-left">Nick Drake</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 text-center md:text-left">Pink Moon</p>
             </div>
           </div>
           <div className="flex flex-col items-center">
             <div className="flex gap-2 items-center justify-center">
               {/* 上一首 */}
-              <Button
-                isIconOnly
-                className="data-[hover]:bg-foreground/10"
-                radius="full"
-                variant="light"
-              >
-                <Icon
-                  icon="mingcute:skip-forward-fill"
-                  className="transform scale-x-[-1] text-2xl"
-                />
+              <Button isIconOnly className="data-[hover]:bg-foreground/10" radius="full" variant="light">
+                <Icon icon="mingcute:skip-forward-fill" className="transform scale-x-[-1] text-2xl" />
               </Button>
               {/* 暂停、播放 */}
               <Button
@@ -53,20 +44,10 @@ const Footer = () => {
                 variant="light"
                 onClick={() => setIsPlay(!isPlay)}
               >
-                <Icon
-                  icon={
-                    isPlay ? "ic:round-play-circle" : "ic:round-pause-circle"
-                  }
-                  className="text-4xl"
-                />
+                <Icon icon={isPlay ? 'ic:round-play-circle' : 'ic:round-pause-circle'} className="text-4xl" />
               </Button>
               {/* 下一首 */}
-              <Button
-                isIconOnly
-                className="data-[hover]:bg-foreground/10"
-                radius="full"
-                variant="light"
-              >
+              <Button isIconOnly className="data-[hover]:bg-foreground/10" radius="full" variant="light">
                 <Icon icon="mingcute:skip-forward-fill" className="text-2xl" />
               </Button>
             </div>
@@ -76,8 +57,8 @@ const Footer = () => {
               <Slider
                 aria-label="Music progress"
                 classNames={{
-                  track: "bg-default-500/30",
-                  thumb: "w-4 h-4 after:w-2 after:h-2 after:bg-foreground",
+                  track: 'bg-default-500/30',
+                  thumb: 'w-4 h-4 after:w-2 after:h-2 after:bg-foreground',
                 }}
                 color="foreground"
                 defaultValue={33}

@@ -1,21 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { NextUIProvider } from "@nextui-org/react";
-import App from "./App.tsx";
-import "@/style/index.scss";
+import React from 'react';
 
-// Redux
-import { store } from "./stores";
-import { Provider } from "react-redux";
+import { NextUIProvider } from '@nextui-org/react';
+import ReactDOM from 'react-dom/client';
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+import App from './App.tsx';
+import '@/style/index.scss';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <NextUIProvider>
-      <Provider store={store}>
-        {/* <PersistGate loading={null} persistor={persistor}> */}
-        <App />
-        {/* </PersistGate> */}
-      </Provider>
+      <App />
     </NextUIProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
