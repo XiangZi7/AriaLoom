@@ -1,0 +1,1 @@
+import{c as a}from"./react-BkS4y_9N.js";import{a2 as t}from"./index-CFHGeej_.js";const o=a()(t(r=>({Breadcrumbs:!0,BreadcrumbTtile:"Home",updateBreadcrumbs:e=>r({Breadcrumbs:e}),updateBreadcrumbTtile:e=>r({BreadcrumbTtile:e})}),{name:"MenuStore"}));export{o as u};
