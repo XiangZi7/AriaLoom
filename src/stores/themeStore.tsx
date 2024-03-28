@@ -1,6 +1,6 @@
 // import { produce } from 'immer';
 import { create } from 'zustand';
-import { persist, createJSONStorage } from 'zustand/middleware';
+import { persist } from 'zustand/middleware';
 
 import { ThemeState } from '@/interface/store/theme';
 
@@ -29,7 +29,7 @@ const useThemeStore = create<ThemeState>()(
     }),
     {
       name: 'ThemeStore', //存储的名称
-      storage: createJSONStorage(() => sessionStorage), //存储到sessionStorage
+      // storage: createJSONStorage(() => sessionStorage), //存储到sessionStorage
       partialize: (state) => ({ isDark: state.isDark }), //值存储isDark字段，而非整个数据
     },
   ),

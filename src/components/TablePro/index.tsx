@@ -30,7 +30,7 @@ export default function TablePro() {
               className="bg-default-400/20 dark:bg-default-500/30 hover:opacity-80 p-4 mb-2 mx-2 rounded-lg shadow flex items-center gap-2 transition-all duration-300 ease-in-out"
             >
               <div className="flex-none w-12 h-12">
-                <Avatar src={song.artistImageUrl} alt={song.artist} className="w-full h-full" />
+                <Avatar src={song.artistImageUrl} alt={song.artist} radius="sm" className="w-full h-full" />
               </div>
               {/* 将标题和歌手信息放在同一个容器内以使它们垂直排列 */}
               <div className="flex flex-col justify-center flex-1 min-w-0">
@@ -86,7 +86,7 @@ export default function TablePro() {
               </div>
             </div>
             <div className="px-6 py-4">
-              <Button className="w-full  text-white rounded-lg">Follow</Button>
+              <Button className="w-full text-white rounded-lg">Follow</Button>
             </div>
           </div>
         </div>

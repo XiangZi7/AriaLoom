@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import { Icon } from '@iconify/react';
 import { Button, Slider, Avatar } from '@nextui-org/react';
 
+import CurrentPlay from './currentplay';
 import Modal from './modal';
 import Volume from './volume';
 
@@ -33,13 +34,13 @@ const Footer = () => {
           <div className="flex flex-col items-center">
             <div className="flex gap-2 items-center justify-center">
               {/* 上一首 */}
-              <Button isIconOnly className="data-[hover]:bg-foreground/10" radius="full" variant="light">
+              <Button isIconOnly className="hover:bg-foreground/10" radius="full" variant="light">
                 <Icon icon="mingcute:skip-forward-fill" className="transform scale-x-[-1] text-2xl" />
               </Button>
               {/* 暂停、播放 */}
               <Button
                 isIconOnly
-                className="w-auto h-auto data-[hover]:bg-foreground/10"
+                className="w-auto h-auto hover:bg-foreground/10"
                 radius="full"
                 variant="light"
                 onClick={() => setIsPlay(!isPlay)}
@@ -47,7 +48,7 @@ const Footer = () => {
                 <Icon icon={isPlay ? 'ic:round-play-circle' : 'ic:round-pause-circle'} className="text-4xl" />
               </Button>
               {/* 下一首 */}
-              <Button isIconOnly className="data-[hover]:bg-foreground/10" radius="full" variant="light">
+              <Button isIconOnly className="hover:bg-foreground/10" radius="full" variant="light">
                 <Icon icon="mingcute:skip-forward-fill" className="text-2xl" />
               </Button>
             </div>
@@ -68,8 +69,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex items-center gap-4 justify-center md:justify-end">
-            <Icon icon="ph:playlist" className="cursor-pointer text-xl" />
-            {/* <Icon icon="bi:volume-up" className="cursor-pointer text-xl" /> */}
+            <CurrentPlay />
             <Volume />
           </div>
         </div>
