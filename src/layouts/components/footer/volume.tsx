@@ -2,8 +2,11 @@ import { FC } from 'react';
 
 import { Icon } from '@iconify/react';
 import { Tooltip, Slider } from '@nextui-org/react';
+
+import { useSharedMusicPlayer } from '@/components/musicPlayerContext';
+
 interface VolumeProps {
-  className?: string; // "?" 表示这个属性是可选的
+  className?: string;
 }
 
 const Volume: FC<VolumeProps> = ({ className }) => {
@@ -17,6 +20,8 @@ const Volume: FC<VolumeProps> = ({ className }) => {
 };
 
 const ProgressBar = () => {
+  const { changeVolume, volume } = useSharedMusicPlayer();
+
   return (
     <>
       <Slider
@@ -27,7 +32,10 @@ const ProgressBar = () => {
         }}
         className="w-[100px]"
         color="foreground"
-        defaultValue={33}
+        maxValue={1}
+        step={0.01}
+        value={volume}
+        onChange={(val) => changeVolume(val as number)}
         size="sm"
       />
     </>

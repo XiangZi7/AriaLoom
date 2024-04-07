@@ -7,10 +7,11 @@ const Layouts = lazy(() => import('@/layouts'));
 const Home = lazy(() => import('@/pages/home'));
 const Mini = lazy(() => import('@/pages/mini'));
 const Theme = lazy(() => import('@/pages/theme'));
+const MV = lazy(() => import('@/pages/mv'));
+const Playmv = lazy(() => import('@/pages/mv/playmv'));
 const Search = lazy(() => import('@/pages/search'));
-const Albums = lazy(() => import('@/pages/albums'));
-const Playlists = lazy(() => import('@/pages/playlists'));
-const Radio = lazy(() => import('@/pages/radio'));
+const Music = lazy(() => import('@/pages/music'));
+const PlaylistDetail = lazy(() => import('@/pages/playlists/playlistDetail'));
 const Download = lazy(() => import('@/pages/download'));
 
 // 加载提示组件
@@ -47,16 +48,20 @@ const rootRouter: RouteObject[] = [
         element: LoadingTip(<Search />),
       },
       {
-        path: 'albums',
-        element: LoadingTip(<Albums />),
+        path: 'music',
+        element: LoadingTip(<Music />),
       },
       {
-        path: 'playlists',
-        element: LoadingTip(<Playlists />),
+        path: 'mv',
+        element: LoadingTip(<MV />),
       },
       {
-        path: 'radio',
-        element: LoadingTip(<Radio />),
+        path: 'playmv/:id',
+        element: LoadingTip(<Playmv />),
+      },
+      {
+        path: 'playlistDetail/:id',
+        element: LoadingTip(<PlaylistDetail />),
       },
       {
         path: 'download',

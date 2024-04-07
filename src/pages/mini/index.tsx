@@ -2,9 +2,13 @@ import { useState } from 'react';
 
 import { Icon } from '@iconify/react';
 import { Card, CardBody, Image, Button, Slider } from '@nextui-org/react';
+
+import { useSharedMusicPlayer } from '@/components/musicPlayerContext';
+
 const Mini = () => {
   const [liked, setLiked] = useState(false);
-
+  const { isPlaying, currentTime, togglePlayPause, duration, track, seek, nextTrack, prevTrack } =
+    useSharedMusicPlayer();
   return (
     <>
       <div className="flex relative w-full h-auto bg-gradient-to-tr rounded-2xl items-center justify-center py-14 px-4 lg:px-8">
@@ -17,17 +21,15 @@ const Mini = () => {
                   className="object-cover"
                   height={200}
                   shadow="md"
-                  src="https://nextui.org/images/album-cover.png"
+                  src={track.cover + '?param=185y185'}
                   width="100%"
                 />
               </div>
-
               <div className="flex flex-col col-span-6 md:col-span-8">
                 <div className="flex justify-between items-start">
                   <div className="flex flex-col gap-0">
-                    <h3 className="font-semibold text-foreground/90">Daily Mix</h3>
-                    <p className="text-small text-foreground/80">12 Tracks</p>
-                    <h1 className="text-large font-medium mt-2">Frontend Radio</h1>
+                    <h3 className="font-semibold text-foreground/90">{track.title}</h3>
+                    <p className="text-small text-foreground/80">{track.singer}</p>
                   </div>
                   <Button
                     isIconOnly
@@ -52,12 +54,14 @@ const Mini = () => {
                       thumb: 'w-2 h-2 after:w-2 after:h-2 after:bg-foreground',
                     }}
                     color="foreground"
-                    defaultValue={33}
+                    value={currentTime}
+                    maxValue={duration}
+                    onChange={(val) => seek(val as number)}
                     size="sm"
                   />
                   <div className="flex justify-between">
-                    <p className="text-small">1:23</p>
-                    <p className="text-small text-foreground/50">4:32</p>
+                    <p className="text-small">{formatMillisecondsToTime(currentTime)}</p>
+                    <p className="text-small text-foreground/50">{formatMillisecondsToTime(duration)}</p>
                   </div>
                 </div>
 
@@ -65,14 +69,31 @@ const Mini = () => {
                   <Button isIconOnly className="data-[hover]:bg-foreground/10" radius="full" variant="light">
                     <Icon icon="akar-icons:arrow-repeat" className="text-foreground/80" />
                   </Button>
-                  <Button isIconOnly className="data-[hover]:bg-foreground/10" radius="full" variant="light">
+                  <Button
+                    isIconOnly
+                    onPress={prevTrack}
+                    className="data-[hover]:bg-foreground/10"
+                    radius="full"
+                    variant="light"
+                  >
                     <Icon icon="solar:skip-previous-bold" className="text-xl" />
                   </Button>
-                  <Button isIconOnly className="data-[hover]:bg-foreground/10" radius="full" variant="light">
-                    <Icon icon="uiw:pause-circle" className="text-3xl" />
+                  <Button
+                    isIconOnly
+                    className="data-[hover]:bg-foreground/10"
+                    onPress={togglePlayPause}
+                    radius="full"
+                    variant="light"
+                  >
+                    <Icon icon={isPlaying ? 'ic:round-pause-circle' : 'ic:round-play-circle'} className="text-4xl" />
                   </Button>
-                  <Button isIconOnly className="data-[hover]:bg-foreground/10" radius="full" variant="light">
-                    {/* <Icon icon="ic:round-skip-next" /> */}
+                  <Button
+                    isIconOnly
+                    onPress={nextTrack}
+                    className="data-[hover]:bg-foreground/10"
+                    radius="full"
+                    variant="light"
+                  >
                     <Icon icon="solar:skip-previous-bold" className="transform scale-x-[-1] text-xl" />
                   </Button>
                   <Button isIconOnly className="data-[hover]:bg-foreground/10" radius="full" variant="light">

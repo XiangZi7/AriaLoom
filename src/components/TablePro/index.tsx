@@ -1,9 +1,9 @@
-import { useState, useRef } from 'react';
+import { useRef, useState, FC } from 'react';
 
 import { Icon } from '@iconify/react';
 import { Avatar, Button } from '@nextui-org/react';
 
-import { Song } from '@/interface/song';
+import { Song } from '@/model/interface/song';
 const mockSongsData = Array.from({ length: 20 }, (_, index) => ({
   id: index,
   title: `Song ${index + 1 + Math.random() * 1000000000}`,
@@ -13,23 +13,42 @@ const mockSongsData = Array.from({ length: 20 }, (_, index) => ({
   duration: '3:45',
 }));
 
-export default function TablePro() {
+interface TableProProps {
+  className?: string;
+}
+
+const TablePro: FC<TableProProps> = ({ className }) => {
   const [songs] = useState<Song[]>(mockSongsData);
   const [loading] = useState<boolean>(false);
 
-  // useRef的类型注解
-  const loadMoreRef = useRef<HTMLDivElement | null>(null);
+  const observedElement = useRef<HTMLLIElement>(null);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const handleIntersect = (pageNum: number) => {
+    // console.log('🚀 => pageNum:', pageNum);
+  };
+
+  useIntersectionObserver(
+    observedElement,
+    {
+      initialPageNum: 1, // 初始页码
+      pageSize: 10, // 页面大小
+      threshold: 0.1, // 可选阈值参数
+    },
+    handleIntersect,
+  );
 
   return (
-    <div className="flex">
-      <div className="flex flex-col flex-1 w-4/5">
+    <div className={`flex ${className}`}>
+      <div className="flex flex-col flex-1 ">
         <ul className="w-full ">
           {songs.map((song) => (
             <li
+              ref={observedElement}
               key={song.id}
-              className="bg-default-400/20 dark:bg-default-500/30 hover:opacity-80 p-4 mb-2 mx-2 rounded-lg shadow flex items-center gap-2 transition-all duration-300 ease-in-out"
+              className="hover:bg-default-400/20 hover:dark:bg-default-500/30 hover:opacity-80 p-2 mb-2 rounded-xl  flex items-center gap-2 transition-all duration-300 ease-in-out"
             >
-              <div className="flex-none w-12 h-12">
+              <div className="flex-none w-10 h-10">
                 <Avatar src={song.artistImageUrl} alt={song.artist} radius="sm" className="w-full h-full" />
               </div>
               {/* 将标题和歌手信息放在同一个容器内以使它们垂直排列 */}
@@ -52,45 +71,10 @@ export default function TablePro() {
             </li>
           ))}
         </ul>
-        <div ref={loadMoreRef} className="m-5">
-          {loading ? <div>加载中...</div> : <button className="btn">加载更多</button>}
-        </div>
-      </div>
-      <div className="w-1/5 md:flex hidden justify-center ">
-        <div className="flex">
-          <div className="rounded-lg shadow-lg w-64 h-[400px] bg-default-400/20 dark:bg-default-500/30">
-            <div className="h-24 bg-default-400/30 rounded-t-lg" />
-            <img
-              alt="User avatar"
-              className="rounded-full -mt-12 border-4 border-white mx-auto"
-              height="100"
-              src="/placeholder.svg"
-              style={{
-                aspectRatio: '100/100',
-                objectFit: 'cover',
-              }}
-              width="100"
-            />
-            <div className="text-center mt-2">
-              <h2 className="text-lg font-semibold">John Doe</h2>
-              <p className="text-gray-500">Software Engineer</p>
-            </div>
-            <div className="flex justify-around my-4">
-              <div className="text-center">
-                <h3 className="font-semibold text-lg">500</h3>
-                <p className="text-gray-500">Followers</p>
-              </div>
-              <div className="text-center">
-                <h3 className="font-semibold text-lg">300</h3>
-                <p className="text-gray-500">Following</p>
-              </div>
-            </div>
-            <div className="px-6 py-4">
-              <Button className="w-full text-white rounded-lg">Follow</Button>
-            </div>
-          </div>
-        </div>
+        <div className="m-5">{loading ? <div>加载中...</div> : <button className="btn">加载更多</button>}</div>
       </div>
     </div>
   );
-}
+};
+
+export default TablePro;

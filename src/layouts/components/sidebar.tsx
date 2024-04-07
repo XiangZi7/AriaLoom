@@ -13,32 +13,19 @@ const SideBar = () => {
         {
           Title: 'Music',
           icon: 'streamline:music-note-2',
-          router: '/search',
+          router: '/music',
           count: 0,
         },
         {
-          Title: 'Albums',
+          Title: 'MV',
           icon: 'akar-icons:music-album',
-          router: '/albums',
-          count: 0,
-        },
-        {
-          Title: 'Playlists',
-          icon: 'ph:playlist-bold',
-          router: '/playlists',
-          count: 0,
-        },
-        {
-          Title: 'Radio',
-          icon: 'f7:dot-radiowaves-left-right',
-          router: '/radio',
+          router: '/mv',
           count: 0,
         },
         {
           Title: 'MiniPlayer',
           icon: 'bi:music-player',
           router: '/mini',
-
           count: 0,
         },
       ],

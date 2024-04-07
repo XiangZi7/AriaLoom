@@ -2,7 +2,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { ThemeState } from '@/interface/store/theme';
+import { ThemeState } from '@/model/interface/store/theme';
 
 // 创建状态存储
 // const useThemeStore = create<ThemeState>((set) => ({

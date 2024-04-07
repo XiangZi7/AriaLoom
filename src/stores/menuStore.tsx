@@ -2,7 +2,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { MenuState } from '@/interface/store/menu';
+import { MenuState } from '@/model/interface/store/menu';
 
 const useMenuStore = create<MenuState>()(
   persist(
