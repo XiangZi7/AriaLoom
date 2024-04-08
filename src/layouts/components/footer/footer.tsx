@@ -16,7 +16,8 @@ const Footer = () => {
     ModalRef.current?.onOpen();
   };
 
-  const { isPlaying, currentTime, togglePlayPause, duration, track, seek } = useSharedMusicPlayer();
+  const { isPlaying, currentTime, togglePlayPause, duration, track, seek, nextTrack, prevTrack } =
+    useSharedMusicPlayer();
 
   return (
     <>
@@ -32,7 +33,7 @@ const Footer = () => {
           <div className="flex flex-col items-center">
             <div className="flex gap-2 items-center justify-center">
               {/* 上一首 */}
-              <Button isIconOnly className="hover:bg-foreground/10" radius="full" variant="light">
+              <Button isIconOnly className="hover:bg-foreground/10" radius="full" variant="light" onPress={prevTrack}>
                 <Icon icon="solar:skip-previous-bold" className="text-xl" />
               </Button>
               {/* 暂停、播放 */}
@@ -46,7 +47,7 @@ const Footer = () => {
                 <Icon icon={isPlaying ? 'ic:round-pause-circle' : 'ic:round-play-circle'} className="text-4xl" />
               </Button>
               {/* 下一首 */}
-              <Button isIconOnly className="hover:bg-foreground/10" radius="full" variant="light">
+              <Button isIconOnly className="hover:bg-foreground/10" radius="full" variant="light" onPress={nextTrack}>
                 <Icon icon="solar:skip-previous-bold" className="transform scale-x-[-1] text-xl" />
               </Button>
             </div>

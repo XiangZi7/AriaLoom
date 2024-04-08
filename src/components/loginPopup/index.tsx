@@ -14,7 +14,7 @@ import {
 } from '@nextui-org/react';
 
 import { LoginPopupHandles } from '@/model/interface/loginPopup';
-const LoginPopup = forwardRef<LoginPopupHandles, object>((props, ref) => {
+const LoginPopup = forwardRef<LoginPopupHandles, object>((_props, ref) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { qrImgUrl, qrStatus } = useLoginPopup(closeLoginModal, isOpen);

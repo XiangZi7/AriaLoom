@@ -19,7 +19,7 @@ import LoginPopup from '@/components/loginPopup';
 
 import DropDown from './Dropdown';
 
-import { LoginPopupHandles } from '@/interface/LoginPopup';
+import { LoginPopupHandles } from '@/model/interface/loginPopup';
 const Header = () => {
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState('');
@@ -34,7 +34,7 @@ const Header = () => {
 
   function toSearch(params: any) {
     if (params.key == 'Enter' && keyword) {
-      navigate(`/search/${keyword}`);
+      navigate(`/search?keywords=${keyword}`);
     }
   }
 

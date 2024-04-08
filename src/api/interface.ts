@@ -1,3 +1,5 @@
+import { playListState } from '@/model/interface/playListDetail';
+
 export interface code {
   code: string | number;
 }
@@ -50,8 +52,19 @@ export interface ResSearch {
 // 歌词
 export interface Reslyric<T = any> extends code {
   klyric: T;
-  lrc: T;
-  tlyric: T;
+  lrc: { lyric: string };
+  tlyric: { lyric: string };
+  romalrc: { lyric: string };
+  lyricUser: LyricUserInfo;
+  transUser: LyricUserInfo;
+}
+interface LyricUserInfo {
+  id: number;
+  status: number;
+  demand: number;
+  userid: number;
+  nickname: string;
+  uptime: number;
 }
 
 //搜索动漫
@@ -80,7 +93,7 @@ export interface ResUserPlaylist extends code {
 
 //歌单详情
 export interface ResPlaylistDetail extends code {
-  playlist: [];
+  playlist: playListState;
   privileges: [];
 }
 

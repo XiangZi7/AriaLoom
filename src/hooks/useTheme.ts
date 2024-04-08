@@ -5,7 +5,7 @@ export const UseTheme = () => {
   // 切换暗黑模式
   const switchDark = () => {
     const body = document.documentElement;
-    isDark == 'isDark' ? body.classList.add('dark') : body.classList.remove('dark');
+    isDark ? body.classList.add('dark') : body.classList.remove('dark');
   };
   return { switchDark };
 };

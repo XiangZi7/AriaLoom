@@ -38,11 +38,7 @@ const Mini = () => {
                     variant="light"
                     onPress={() => setLiked((v) => !v)}
                   >
-                    <Icon
-                      icon="tabler:heart"
-                      className={liked ? '[&>path]:stroke-transparent' : ''}
-                      fill={liked ? 'currentColor' : 'none'}
-                    />
+                    <Icon icon="tabler:heart" className={liked ? ' text-red-500' : ''} />
                   </Button>
                 </div>
 

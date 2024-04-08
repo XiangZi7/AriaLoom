@@ -1,4 +1,4 @@
 export interface ThemeState {
-  isDark: string;
-  updateDark: (params: string) => void;
+  isDark: boolean;
+  updateDark: (isDark: boolean) => void;
 }

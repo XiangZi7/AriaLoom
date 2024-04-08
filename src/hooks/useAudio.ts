@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
+import { lyric } from '@/api';
 import { PlayMode } from '@/model/enum/PlayMode';
+import { LyricData } from '@/model/interface/player';
+
 export function useMusicPlayer() {
-  const audioRef = React.useRef(new Audio());
+  const audioRef = useRef(new Audio());
   const { trackList, currentIndex, updateCurrentIndex } = audioStore((state) => ({
     trackList: state.trackList,
     currentIndex: state.currentIndex,
@@ -13,18 +16,58 @@ export function useMusicPlayer() {
   const [currentTime, setCurrentTime] = useState(0);
   // 播放模式状态;
   const [playMode, setPlayMode] = useState<PlayMode>(PlayMode.Normal);
-  const [volume, setVolume] = useState(0.7); // 初始化音量为最大值
+  // 初始化音量为最大值
+  const [volume, setVolume] = useState(0.7);
+  // 歌词
+  // @ts-ignore
+  const [lyrics, setLyrics] = useState<LyricData>({} || undefined);
+  const [activeLyricIndex, setActiveLyricIndex] = useState(0);
 
-  // 加载当前歌曲
+  // 歌词滚动
+  useEffect(() => {
+    const findActiveLyricIndex = () => {
+      if (lyrics && lyrics.lines) {
+        const activeIndex = lyrics.lines.findIndex((line, index, array) => {
+          return index === array.length - 1 || (line.time <= currentTime && array[index + 1].time > currentTime);
+        });
+        if (activeIndex !== -1) {
+          setActiveLyricIndex(activeIndex);
+        }
+      }
+    };
+
+    findActiveLyricIndex();
+  }, [currentTime, lyrics]);
+
+  // 加载当前歌曲和歌词
+  useEffect(() => {
+    if (trackList.length > 0) {
+      audioRef.current.src = trackList[currentIndex].source;
+      // 这里获取并设置歌词
+      lyric(trackList[currentIndex].id)
+        .then((result) => {
+          // 解析并合并原文和翻译
+          const mergedLyrics = parseAndMergeLyrics(result);
+          setLyrics(mergedLyrics); // 更新歌词状态
+        })
+        .catch((err) => {
+          console.error('获取歌词失败:', err);
+          // @ts-ignore
+          setLyrics(undefined); // 出错时，重置歌词
+        });
+    }
+  }, [trackList, currentIndex]);
+  // 监听当前播放歌曲的索引
   useEffect(() => {
     if (trackList.length > 0) {
       audioRef.current.src = trackList[currentIndex].source;
     }
-  }, [trackList, currentIndex]);
+  }, [currentIndex]);
   // 修改音量
   useEffect(() => {
     audioRef.current.volume = volume;
   }, [volume]);
+
   // 控制播放和暂停
   useEffect(() => {
     if (isPlaying) {
@@ -74,7 +117,6 @@ export function useMusicPlayer() {
       nextIndex = currentIndex + 1 >= trackList.length ? 0 : currentIndex + 1;
     }
     // 对于单曲循环（PlayMode.Repeat），不需要更改index，因为要重复当前歌曲
-
     updateCurrentIndex(nextIndex); // 确保有更新currentIndex的逻辑
     audioRef.current.src = trackList[nextIndex].source;
     audioRef.current.play().catch((err) => console.error('播放失败:', err));
@@ -117,6 +159,8 @@ export function useMusicPlayer() {
     duration: trackList.length > 0 ? trackList[currentIndex].time : 0,
     playMode,
     volume,
+    lyrics,
+    activeLyricIndex,
     togglePlayPause,
     nextTrack,
     prevTrack,

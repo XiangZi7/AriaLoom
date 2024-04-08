@@ -24,7 +24,7 @@ import { ThemeState } from '@/model/interface/store/theme';
 const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
-      isDark: 'isLight',
+      isDark: true,
       updateDark: (isDark) => set({ isDark }),
     }),
     {

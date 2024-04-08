@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { HashRouter } from 'react-router-dom';
 
 import { UseTheme } from '@/hooks/useTheme';
-import { UserState } from '@/interface/store/user';
+import { UserState } from '@/model/interface/store/user';
 import LayoutsRouters from '@/routers';
 
 function App() {

@@ -61,7 +61,7 @@ const SideBar = () => {
             <NavLink
               to={item.router}
               color="foreground"
-              className="flex items-center w-full gap-2 rounded-md  text-sm font-medium relative inline-flex items-center tap-highlight-transparent outline-none text-medium text-foreground no-underline p-3 hover:after:opacity-100 after:content-[''] after:inset-0 after:opacity-0 after:w-full after:h-full after:rounded-xl after:transition-background after:absolute hover:after:bg-foreground/10"
+              className="flex items-center w-full gap-2 rounded-md  text-sm font-medium relative tap-highlight-transparent outline-none text-foreground no-underline p-3 hover:after:opacity-100 after:content-[''] after:inset-0 after:opacity-0 after:w-full after:h-full after:rounded-xl after:transition-background after:absolute hover:after:bg-foreground/10"
             >
               <Icon className="text-xl" icon={item.icon} />
               {item.Title}
@@ -73,14 +73,14 @@ const SideBar = () => {
                     <NavLink
                       to={child.router}
                       color="foreground"
-                      className="flex items-center w-full gap-2 rounded-md  text-sm font-medium relative inline-flex items-center tap-highlight-transparent outline-none text-medium text-foreground no-underline p-3 hover:after:opacity-100 after:content-[''] after:inset-0 after:opacity-0 after:w-full after:h-full after:rounded-xl after:transition-background after:absolute hover:after:bg-foreground/10"
+                      className="flex items-center w-full gap-2 rounded-md  text-sm font-medium relative tap-highlight-transparent outline-none text-foreground no-underline p-3 hover:after:opacity-100 after:content-[''] after:inset-0 after:opacity-0 after:w-full after:h-full after:rounded-xl after:transition-background after:absolute hover:after:bg-foreground/10"
                     >
                       <Icon className="text-sm" icon={child.icon} />
                       <Badge
                         size="sm"
                         color="danger"
                         content={child.count}
-                        isInvisible={child.count > 0 ? false : true}
+                        isInvisible={child.count <= 0}
                         shape="circle"
                       >
                         {child.Title}

@@ -1,16 +1,17 @@
 import { Icon } from '@iconify/react';
 import { Popover, PopoverTrigger, PopoverContent, Image } from '@nextui-org/react';
 import { Button } from '@nextui-org/react';
-
+import './modal.scss';
 const Content = () => {
-  const { trackList, updateCurrentIndex } = audioStore((state) => ({
+  const { trackList, updateCurrentIndex, currentIndex } = audioStore((state) => ({
     trackList: state.trackList,
     updateCurrentIndex: state.updateCurrentIndex,
+    currentIndex: state.currentIndex,
   }));
 
   return (
     <div className="w-[400px] h-[400px] ">
-      <div className="flex justify-end px-5 pt-3  inline-block ">
+      <div className="flex justify-end px-5 pt-3">
         <span className="cursor-pointer flex items-center gap-1 hover:bg-foreground/10 p-1 rounded-lg transition duration-300 ease-in-out">
           <Icon icon="mynaui:trash" className="text-base" />
           清空
@@ -20,17 +21,24 @@ const Content = () => {
         {trackList.map((song, index) => (
           <div
             key={song.id}
-            className="flex items-center justify-between p-2 m-2 rounded-lg dark:hover:bg-gray-200/20 transition duration-300 ease-in-out"
+            className="flex items-center justify-between p-2  rounded-lg dark:hover:bg-gray-200/20 transition duration-300 ease-in-out"
           >
             <div className="flex items-center">
-              <Image
-                src={song.cover + '?param=40y40'}
-                alt={song.title}
-                className="w-10 h-10 object-cover mr-4 rounded"
-              />
+              {currentIndex == index && (
+                <div className="w-7 flex justify-start">
+                  <div className="loading h-[32px] ">
+                    <div className="load" />
+                    <div className="load" />
+                    <div className="load" />
+                    <div className="load" />
+                  </div>
+                </div>
+              )}
+              {currentIndex != index && <div className="w-7">{index + 1}</div>}
+              <Image src={song.cover + '?param=30y30'} alt={song.title} className="w-8 h-8 object-cover mr-4 rounded" />
               <div>
-                <div className="text-sm font-semibold text-foreground/90">{song.title}</div>
-                <div className="text-small text-xs text-foreground/80"> {formatMillisecondsToTime(song.time)}</div>
+                <div className="text-xs font-semibold text-foreground/90">{song.title}</div>
+                <div className="text-xs text-foreground/60"> {formatMillisecondsToTime(song.time)}</div>
               </div>
             </div>
             {/* 暂停、播放 */}
