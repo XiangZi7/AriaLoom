@@ -73,6 +73,7 @@ module.exports = {
         allowedNames: ['that'], // this可用的局部变量名称
       },
     ],
+    "react-hooks/exhaustive-deps": "off",
     '@typescript-eslint/ban-ts-comment': 'off', //允许使用@ts-ignore
     '@typescript-eslint/no-non-null-assertion': 'off', //允许使用非空断言
     'no-console': [
