@@ -11,6 +11,7 @@ export interface msg {
 // 请求响应参数（包含data）
 export interface ResultData<T = any> extends code {
   data?: T;
+  count?: number;
 }
 
 export interface ResultRes<T = any> extends code {
@@ -142,4 +143,10 @@ export interface artistDescModel {
   code: number;
   count: number;
   briefDesc: string;
+}
+
+//MV参数
+export interface MVParams extends pages {
+  area?: string;
+  order?: string;
 }

@@ -6,6 +6,8 @@ import { Card, Image, CardFooter, ScrollShadow } from '@nextui-org/react';
 
 import TablePro from '@/components/TablePro';
 
+import { importImage } from '@/utils/hrefIamge.ts';
+
 import { cloudsearch } from '@/api';
 import { songListState, songState } from '@/model/interface/search';
 
@@ -39,7 +41,11 @@ const Music = () => {
             </p>
           </div>
           <div className="flex-[40%] max-w-[40%] h-full ">
-            <img className="absolute w-[420px] bottom-0 right-0" src="src/assets/danceMk.png" alt="Playlist cover" />
+            <img
+              className="absolute w-[420px] bottom-0 right-0"
+              src={importImage('danceMk.png')}
+              alt="Playlist cover"
+            />
           </div>
         </div>
       </div>

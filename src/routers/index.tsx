@@ -1,4 +1,4 @@
-import { lazy, Suspense, ReactElement } from 'react';
+import { lazy, Suspense, ReactElement, FC } from 'react';
 import { useRoutes, RouteObject, Navigate } from 'react-router-dom';
 
 import { CircularProgress } from '@nextui-org/react';
@@ -71,7 +71,7 @@ const rootRouter: RouteObject[] = [
   },
 ];
 
-const Router: React.FC = () => {
+const Router: FC = () => {
   const routes = useRoutes(rootRouter);
   return routes;
 };

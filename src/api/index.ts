@@ -15,6 +15,7 @@ import {
   CommentMVParams,
   CommentMVPOJO,
   artistDescModel,
+  MVParams,
 } from './interface';
 
 // 搜索歌曲
@@ -63,7 +64,7 @@ export const lyric = (id: number | string) => httpGet<Reslyric>(`/lyric?id=${id}
 
 // 最热MV
 export const mvFirst = () => httpGet<ResultData>('/mv/first');
-export const mvUrl = (id: number) => httpGet<ResultData>(`/mv/url?id=${id}`);
+export const mvUrl = (id: string | undefined) => httpGet<ResultData>(`/mv/url?id=${id}`);
 // 获取用户等级信息
 export const userLevel = () => httpGet<ResultData>(`/user/level`);
 // 获取账号信息
@@ -78,9 +79,9 @@ export const topPlaylist = (params: pages) =>
 //歌单分类
 export const playlistCatList = () => httpGet<{ sub: [] }>(`/playlist/catlist`);
 //获取 mv 数据
-export const mvDetail = (mvid: number | string) => httpGet<ResultData>(`/mv/detail?mvid=${mvid}`);
+export const mvDetail = (mvid: string | undefined) => httpGet<ResultData>(`/mv/detail?mvid=${mvid}`);
 // mv 评论
-export const commentMV = (params: CommentMVParams) =>
+export const commentMV = (params: { id: string | undefined; limit?: number; offset?: number }) =>
   httpGet<CommentMVPOJO>(
     `/comment/mv?id=${params.id}&limit=${params.limit || 30}&offset=${(((params.offset || 1) as number) - 1) * 30}`,
   );
@@ -116,3 +117,9 @@ export const artists = (id: number) => httpGet<artistDescModel>('/artists', { id
 export const artistMv = (id: number) => httpGet<artistDescModel>('/artist/mv', { id });
 // 获取歌手专辑
 export const artistAlbum = (id: number) => httpGet<artistDescModel>('/artist/album', { id });
+export const allMV = (params: MVParams) =>
+  httpGet<ResultData>(`/mv/all?limit=${params.limit || 30}&offset=${(((params.offset || 1) as number) - 1) * 30}`, {
+    area: params.area,
+    order: params.order,
+  });
+export const simiMV = (id: string | undefined) => httpGet(`/simi/mv?mvid=${id}`);

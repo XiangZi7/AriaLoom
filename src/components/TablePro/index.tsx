@@ -1,4 +1,4 @@
-import { useRef, useState, FC } from 'react';
+import { FC } from 'react';
 
 import { Icon } from '@iconify/react';
 import { Avatar, Button } from '@nextui-org/react';
@@ -13,28 +13,8 @@ interface TableProProps {
   query?: (pageNum: number, pageSize: number) => void;
 }
 
-type query = (pageNum: number, pageSize: number) => void;
-
-const TablePro: FC<TableProProps> = ({ className, SongsData, query }) => {
-  const [loading] = useState<boolean>(false);
-
-  const observedElement = useRef<HTMLLIElement>(null);
-
+const TablePro: FC<TableProProps> = ({ className, SongsData }) => {
   const { updateTrackLists } = audioStore();
-  const handleIntersect: query = (pageNum, pageSize) => {
-    if (!query) return;
-    query(pageNum, pageSize);
-  };
-
-  useIntersectionObserver(
-    observedElement,
-    {
-      initialPageNum: 1, // 初始页码
-      pageSize: 10, // 页面大小
-      threshold: 0.1, // 可选阈值参数
-    },
-    handleIntersect,
-  );
 
   function play(item: songState) {
     urlV1(item.id).then(({ data }) => {
@@ -58,7 +38,6 @@ const TablePro: FC<TableProProps> = ({ className, SongsData, query }) => {
         <ul className="w-full ">
           {SongsData?.map((song) => (
             <li
-              ref={observedElement}
               key={song.id}
               className="hover:bg-default-400/20 hover:dark:bg-default-500/30 hover:opacity-80 p-2 mb-2 rounded-xl  flex items-center gap-2 transition-all duration-300 ease-in-out"
             >
@@ -98,7 +77,6 @@ const TablePro: FC<TableProProps> = ({ className, SongsData, query }) => {
             </li>
           ))}
         </ul>
-        <div className="m-5">{loading ? <div>加载中...</div> : <button className="btn">加载更多</button>}</div>
       </div>
     </div>
   );
