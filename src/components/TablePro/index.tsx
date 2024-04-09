@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Icon } from '@iconify/react';
 import { Avatar, Button } from '@nextui-org/react';
@@ -15,7 +16,7 @@ interface TableProProps {
 
 const TablePro: FC<TableProProps> = ({ className, SongsData }) => {
   const { updateTrackLists } = audioStore();
-
+  const navigate = useNavigate();
   function play(item: songState) {
     urlV1(item.id).then(({ data }) => {
       const param: Track = {
@@ -69,7 +70,13 @@ const TablePro: FC<TableProProps> = ({ className, SongsData }) => {
                   <Icon icon="material-symbols:play-circle-outline" className="text-2xl" />
                 </Button>
                 {song.mv != 0 && (
-                  <Button isIconOnly className="data-[hover]:bg-foreground/10" radius="full" variant="light">
+                  <Button
+                    isIconOnly
+                    className="data-[hover]:bg-foreground/10"
+                    radius="full"
+                    variant="light"
+                    onPress={() => navigate(`/playmv/${song.mv}`)}
+                  >
                     <Icon icon="ph:film-strip" className="text-2xl" />
                   </Button>
                 )}
