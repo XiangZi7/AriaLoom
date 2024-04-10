@@ -17,11 +17,15 @@ import { LoginPopupHandles } from '@/model/interface/loginPopup';
 const LoginPopup = forwardRef<LoginPopupHandles, object>((_props, ref) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const { qrImgUrl, qrStatus } = useLoginPopup(closeLoginModal, isOpen);
+  const { qrImgUrl, qrStatus, stopPolling } = useLoginPopup(
+    closeLoginModal,
+    isOpen,
+  );
 
   // 获取完用户数据就关闭登录窗口
   function closeLoginModal() {
     onClose();
+    stopPolling();
   }
 
   // 使用 useImperativeHandle 钩子暴露特定的属性和方法给父组件
@@ -37,7 +41,9 @@ const LoginPopup = forwardRef<LoginPopupHandles, object>((_props, ref) => {
             <>
               <ModalHeader className="flex flex-col gap-1">
                 <h2 className="text-lg font-bold leading-none">二维码</h2>
-                <p className="text-sm leading-none text-[#666666]">请将二维码放在扫描区域内</p>
+                <p className="text-sm leading-none text-[#666666]">
+                  请将二维码放在扫描区域内
+                </p>
               </ModalHeader>
               <ModalBody>
                 <div className="flex flex-col gap-2 items-center justify-center">
@@ -50,7 +56,9 @@ const LoginPopup = forwardRef<LoginPopupHandles, object>((_props, ref) => {
                   {qrStatus?.message && (
                     <div className="flex items-center gap-2">
                       <Icon icon="ion:scan-outline" />
-                      <span className="text-sm font-medium">{qrStatus?.message}</span>
+                      <span className="text-sm font-medium">
+                        {qrStatus?.message}
+                      </span>
                     </div>
                   )}
 

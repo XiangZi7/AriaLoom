@@ -9,7 +9,9 @@ function App() {
   const { switchDark } = UseTheme();
   switchDark();
 
-  const refreshLoginStatus = userStore((state: UserState) => state.refreshLoginStatus);
+  const refreshLoginStatus = userStore(
+    (state: UserState) => state.refreshLoginStatus,
+  );
 
   // 获取用户状态
   useEffect(() => {

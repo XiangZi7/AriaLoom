@@ -36,7 +36,9 @@ const Theme = () => {
       <div className="h-full flex flex-col gap-5 z-10 p-3">
         <Card className="bg-default-400/20 dark:bg-default-500/30 py-2 px-4">
           <CardBody>
-            <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Dark Mode</h1>
+            <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
+              Dark Mode
+            </h1>
             <Switch
               isSelected={isDark}
               size="lg"
@@ -53,8 +55,15 @@ const Theme = () => {
         </Card>
         <Card className="bg-default-400/20 dark:bg-default-500/30 py-2 px-4">
           <CardBody>
-            <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Breadcrumbs</h1>
-            <Switch isSelected={Breadcrumbs} size="lg" color="success" onValueChange={handleMenuChange} />
+            <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
+              Breadcrumbs
+            </h1>
+            <Switch
+              isSelected={Breadcrumbs}
+              size="lg"
+              color="success"
+              onValueChange={handleMenuChange}
+            />
           </CardBody>
         </Card>
       </div>

@@ -45,20 +45,31 @@ const TablePro: FC<TableProProps> = ({ className, SongsData }) => {
               <div className="flex flex-[40%] max-w-[40%] truncate">
                 <div className="flex gap-2">
                   <div className="flex-none w-10 h-10">
-                    <Avatar src={song.al.picUrl} alt={song.name} radius="sm" className="w-full h-full" />
+                    <Avatar
+                      src={song.al.picUrl}
+                      alt={song.name}
+                      radius="sm"
+                      className="w-full h-full"
+                    />
                   </div>
                   {/* 将标题和歌手信息放在同一个容器内以使它们垂直排列 */}
                   <div className="flex flex-col justify-center ">
                     {/* 为标题指定宽度和省略符号 */}
                     <div className="text-small ">{song.name}</div>
-                    <div className="text-xs text-gray-500 ">{song.ar.map((ar) => ar.name).join(' / ')}</div>
+                    <div className="text-xs text-gray-500 ">
+                      {song.ar.map((ar) => ar.name).join(' / ')}
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* 专辑信息和时长各占据一部分固定空间 */}
-              <div className="flex flex-[25%] max-w-[25%] truncate text-small">{song.al.name}</div>
-              <div className="flex flex-[25%] max-w-[25%] text-small">{formatMillisecondsToTime(song.dt)}</div>
+              <div className="flex flex-[25%] max-w-[25%] truncate text-small">
+                {song.al.name}
+              </div>
+              <div className="flex flex-[25%] max-w-[25%] text-small">
+                {formatMillisecondsToTime(song.dt)}
+              </div>
               <div className="flex flex-[10%] max-w-[10%] justify-end ">
                 <Button
                   isIconOnly
@@ -67,7 +78,10 @@ const TablePro: FC<TableProProps> = ({ className, SongsData }) => {
                   variant="light"
                   onPress={() => play(song)}
                 >
-                  <Icon icon="material-symbols:play-circle-outline" className="text-2xl" />
+                  <Icon
+                    icon="material-symbols:play-circle-outline"
+                    className="text-2xl"
+                  />
                 </Button>
                 {song.mv != 0 && (
                   <Button

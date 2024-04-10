@@ -63,7 +63,11 @@ const Search = () => {
           key="Songs"
           title={
             <div className="flex items-center space-x-2">
-              <Icon icon="material-symbols:android-now-playing" className="text-xl" /> <span>Songs</span>
+              <Icon
+                icon="material-symbols:android-now-playing"
+                className="text-xl"
+              />{' '}
+              <span>Songs</span>
             </div>
           }
         />
@@ -71,7 +75,11 @@ const Search = () => {
           key="SongList"
           title={
             <div className="flex items-center space-x-2">
-              <Icon icon="streamline:music-folder-song-solid" className="text-xl" /> <span>SongList</span>
+              <Icon
+                icon="streamline:music-folder-song-solid"
+                className="text-xl"
+              />{' '}
+              <span>SongList</span>
             </div>
           }
         />
@@ -92,9 +100,15 @@ const Search = () => {
               className="rounded-lg shadow-md transform hover:scale-105 transition duration-500 ease-in-out my-0 mx-auto"
               onClick={() => Navigate(`/playListDetail/${song.id}`)}
             >
-              <Image src={song.coverImgUrl + '?param=300y300'} alt={song.name} className="" />
+              <Image
+                src={song.coverImgUrl + '?param=300y300'}
+                alt={song.name}
+                className=""
+              />
               <div className="text-sm text-center mt-2">{song.name}</div>
-              <p className="text-center text-default-500 text-xs">{song.description}</p>
+              <p className="text-center text-default-500 text-xs">
+                {song.description}
+              </p>
             </div>
           ))}
         </div>

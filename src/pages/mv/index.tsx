@@ -12,11 +12,17 @@ const MVList = () => {
   const navigate = useNavigate();
   const [total, setTotal] = useState(0);
   const [initialPage, setInitialPage] = useState(1);
-  const [selectedOrderKeys, setSelectedOrderKeys] = useState(new Set(['上升最快']));
+  const [selectedOrderKeys, setSelectedOrderKeys] = useState(
+    new Set(['上升最快']),
+  );
   const [selectedAreaKeys, setSelectedAreaKeys] = useState(new Set(['全部']));
   const [MVList, setMVPList] = useState<MVListState[]>([]);
 
-  function getMVData(pageNum: number, orderKeys?: Set<string>, areaKeys?: Set<string>) {
+  function getMVData(
+    pageNum: number,
+    orderKeys?: Set<string>,
+    areaKeys?: Set<string>,
+  ) {
     // 如果orderKeys或areaKeys为undefined，则使用空Set作为默认值
     const safeOrderKeys = orderKeys ? [...orderKeys] : [];
     const safeAreaKeys = areaKeys ? [...areaKeys] : [];

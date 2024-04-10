@@ -1,9 +1,16 @@
 {
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
   "name": "km-music-player",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "commit": "cz",
     "dev": "vite",
     "KM-Music-Player": "vite",
     "build": "vite build",
@@ -43,6 +50,7 @@
     "@typescript-eslint/parser": "^7.4.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.18",
+    "cz-git": "^1.9.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",

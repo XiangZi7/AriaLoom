@@ -1,13 +1,20 @@
 import { Icon } from '@iconify/react';
-import { Popover, PopoverTrigger, PopoverContent, Image } from '@nextui-org/react';
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  Image,
+} from '@nextui-org/react';
 import { Button } from '@nextui-org/react';
 import './modal.scss';
 const Content = () => {
-  const { trackList, updateCurrentIndex, currentIndex } = audioStore((state) => ({
-    trackList: state.trackList,
-    updateCurrentIndex: state.updateCurrentIndex,
-    currentIndex: state.currentIndex,
-  }));
+  const { trackList, updateCurrentIndex, currentIndex } = audioStore(
+    (state) => ({
+      trackList: state.trackList,
+      updateCurrentIndex: state.updateCurrentIndex,
+      currentIndex: state.currentIndex,
+    }),
+  );
 
   return (
     <div className="w-[400px] h-[400px] ">
@@ -35,10 +42,19 @@ const Content = () => {
                 </div>
               )}
               {currentIndex != index && <div className="w-7">{index + 1}</div>}
-              <Image src={song.cover + '?param=30y30'} alt={song.title} className="w-8 h-8 object-cover mr-4 rounded" />
+              <Image
+                src={song.cover + '?param=30y30'}
+                alt={song.title}
+                className="w-8 h-8 object-cover mr-4 rounded"
+              />
               <div>
-                <div className="text-xs font-semibold text-foreground/90">{song.title}</div>
-                <div className="text-xs text-foreground/60"> {formatMillisecondsToTime(song.time)}</div>
+                <div className="text-xs font-semibold text-foreground/90">
+                  {song.title}
+                </div>
+                <div className="text-xs text-foreground/60">
+                  {' '}
+                  {formatMillisecondsToTime(song.time)}
+                </div>
               </div>
             </div>
             {/* 暂停、播放 */}

@@ -6,11 +6,13 @@ import { LyricData } from '@/model/interface/player';
 
 export function useMusicPlayer() {
   const audioRef = useRef(new Audio());
-  const { trackList, currentIndex, updateCurrentIndex } = audioStore((state) => ({
-    trackList: state.trackList,
-    currentIndex: state.currentIndex,
-    updateCurrentIndex: state.updateCurrentIndex,
-  }));
+  const { trackList, currentIndex, updateCurrentIndex } = audioStore(
+    (state) => ({
+      trackList: state.trackList,
+      currentIndex: state.currentIndex,
+      updateCurrentIndex: state.updateCurrentIndex,
+    }),
+  );
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -28,7 +30,10 @@ export function useMusicPlayer() {
     const findActiveLyricIndex = () => {
       if (lyrics && lyrics.lines) {
         const activeIndex = lyrics.lines.findIndex((line, index, array) => {
-          return index === array.length - 1 || (line.time <= currentTime && array[index + 1].time > currentTime);
+          return (
+            index === array.length - 1 ||
+            (line.time <= currentTime && array[index + 1].time > currentTime)
+          );
         });
         if (activeIndex !== -1) {
           setActiveLyricIndex(activeIndex);
@@ -56,13 +61,8 @@ export function useMusicPlayer() {
           setLyrics(undefined); // 出错时，重置歌词
         });
     }
-  }, [trackList, currentIndex]);
-  // 监听当前播放歌曲的索引
-  useEffect(() => {
-    if (trackList.length > 0) {
-      audioRef.current.src = trackList[currentIndex].source;
-    }
   }, [currentIndex]);
+
   // 修改音量
   useEffect(() => {
     audioRef.current.volume = volume;
@@ -125,7 +125,8 @@ export function useMusicPlayer() {
   // 上一首
   // 通常不需要在前一首歌曲上实现随机和单曲循环模式;
   const prevTrack = () => {
-    const prevIndex = currentIndex - 1 < 0 ? trackList.length - 1 : currentIndex - 1;
+    const prevIndex =
+      currentIndex - 1 < 0 ? trackList.length - 1 : currentIndex - 1;
     updateCurrentIndex(prevIndex);
     audioRef.current.src = trackList[prevIndex].source;
     setIsPlaying(true); // 自动播放前一首

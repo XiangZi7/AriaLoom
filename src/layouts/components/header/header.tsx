@@ -52,7 +52,11 @@ const Header = () => {
                 </span>
               </h1>
               <div className="pl-16">
-                <Icon icon="ic:round-arrow-back-ios" className="cursor-pointer" onClick={() => navigate(-1)} />
+                <Icon
+                  icon="ic:round-arrow-back-ios"
+                  className="cursor-pointer"
+                  onClick={() => navigate(-1)}
+                />
               </div>
             </div>
           </NavbarBrand>
@@ -87,7 +91,10 @@ const Header = () => {
         </NavbarContent>
         <NavbarContent as="div" className="items-center" justify="end">
           <div className="flex items-center gap-1">
-            <Icon icon="fluent:weather-hail-day-20-regular" className="text-lg" />
+            <Icon
+              icon="fluent:weather-hail-day-20-regular"
+              className="text-lg"
+            />
             27°
           </div>
           <Icon icon="material-symbols:bluetooth" className="text-lg" />
@@ -98,7 +105,8 @@ const Header = () => {
               base: 'max-w-full sm:max-w-[15rem] h-10',
               mainWrapper: 'h-full',
               input: 'text-small',
-              inputWrapper: 'h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20',
+              inputWrapper:
+                'h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20',
             }}
             placeholder="Type to search..."
             size="sm"
@@ -122,7 +130,9 @@ const Header = () => {
             <Button
               variant="shadow"
               color="secondary"
-              startContent={<Icon icon="material-symbols:account-circle-full" />}
+              startContent={
+                <Icon icon="material-symbols:account-circle-full" />
+              }
               onPress={() => LoginPopupRef.current?.openModal()}
             >
               Login

@@ -58,7 +58,10 @@ const Music = () => {
               className="min-w-max inline-block my-2"
               onClick={() => navigate(`/playlistDetail/${song.id}`)}
             >
-              <Card isFooterBlurred className="w-full h-[200px] col-span-12 sm:col-span-5">
+              <Card
+                isFooterBlurred
+                className="w-full h-[200px] col-span-12 sm:col-span-5"
+              >
                 <Image
                   removeWrapper
                   src={song.coverImgUrl + '?param=350y350'}
@@ -66,7 +69,9 @@ const Music = () => {
                   className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
                 />
                 <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
-                  <p className="text-black text-tiny text-center truncate w-full">{song.name}</p>
+                  <p className="text-black text-tiny text-center truncate w-full">
+                    {song.name}
+                  </p>
                 </CardFooter>
               </Card>
             </div>

@@ -66,7 +66,10 @@ function useLoginQr(qrCallback: QrCallback, isOpen: boolean) {
 
   const startPolling = () => {
     stopPolling();
-    intervalId.current = window.setInterval(checkQrStatus, 3000) as unknown as number;
+    intervalId.current = window.setInterval(
+      checkQrStatus,
+      3000,
+    ) as unknown as number;
   };
 
   const stopPolling = () => {

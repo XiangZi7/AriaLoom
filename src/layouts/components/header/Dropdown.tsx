@@ -1,5 +1,12 @@
 import { Icon } from '@iconify/react';
-import { Modal, ModalContent, ModalBody, ModalFooter, Button, useDisclosure } from '@nextui-org/react';
+import {
+  Modal,
+  ModalContent,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from '@nextui-org/react';
 
 import { logout } from '@/api';
 const DropDown = () => {
@@ -16,7 +23,8 @@ const DropDown = () => {
       <div className="duration-300 ease-in-out">
         <ul>
           <li className="px-5 py-2 ">
-            如果项目对你有帮助，请一键三连哦 <span className="text-red-500">❤</span>{' '}
+            如果项目对你有帮助，请一键三连哦{' '}
+            <span className="text-red-500">❤</span>{' '}
           </li>
           <li
             className="px-5 py-2 transition-colors duration-300 ease-linear hover:bg-default-200 cursor-pointer rounded-lg flex gap-1 items-center"

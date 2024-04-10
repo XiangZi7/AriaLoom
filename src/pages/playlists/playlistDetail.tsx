@@ -10,7 +10,9 @@ import { playListState } from '@/model/interface/playListDetail';
 
 function PlaylistDetailJZ() {
   const { id } = useParams();
-  const [playlistData, setPlaylistData] = useState<playListState | undefined>(undefined);
+  const [playlistData, setPlaylistData] = useState<playListState | undefined>(
+    undefined,
+  );
   useEffect(() => {
     playlistDetail(Number(id) || 0).then(({ playlist }) => {
       setPlaylistData(playlist);
@@ -40,7 +42,9 @@ function PlaylistDetailJZ() {
             {playlistData?.creator && (
               <>
                 <Avatar src={playlistData?.creator.avatarUrl} alt="用户头像" />
-                <span className="text-sm">{playlistData?.creator.nickname}</span>
+                <span className="text-sm">
+                  {playlistData?.creator.nickname}
+                </span>
               </>
             )}
           </div>
@@ -60,7 +64,8 @@ function PlaylistDetailJZ() {
 
           {/* 创建时间 */}
           <div className="text-sm mt-auto ">
-            创建时间:{new Date(playlistData?.createTime ?? 0).toLocaleDateString()}
+            创建时间:
+            {new Date(playlistData?.createTime ?? 0).toLocaleDateString()}
           </div>
         </div>
       </div>

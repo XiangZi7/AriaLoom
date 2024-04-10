@@ -14,7 +14,10 @@ export function parseLyrics(lyricString: string): LyricLine[] {
       matches.forEach((match) => {
         const minutes = parseInt(match[1], 10);
         const seconds = parseInt(match[2], 10);
-        const milliseconds = match[3].length === 3 ? parseInt(match[3], 10) : parseInt(match[3], 10) * 10;
+        const milliseconds =
+          match[3].length === 3
+            ? parseInt(match[3], 10)
+            : parseInt(match[3], 10) * 10;
         const time = minutes * 60 * 1000 + seconds * 1000 + milliseconds;
         parsedLines.push({ time: time, text: text });
       });
@@ -32,17 +35,23 @@ export function parseAndMergeLyrics(lyrics: Reslyric) {
   const romaParsed: LyricLine[] = parseLyrics(romalrc.lyric) || '';
 
   // 合并原文和翻译，假设每一行的时间戳都一致
-  const mergedLyrics: MergedLyricLine[] = originalParsed.map((lyric): MergedLyricLine => {
-    // 尝试找到时间戳匹配的翻译行
-    const translation: LyricLine | undefined = translatedParsed.find((tran) => tran.time === lyric.time);
-    const romaLrc: LyricLine | undefined = romaParsed.find((tran) => tran.time === lyric.time);
-    // 如果找到翻译，添加到原文对象中
-    return {
-      ...lyric,
-      translation: translation?.text,
-      romaLrc: romaLrc?.text,
-    };
-  });
+  const mergedLyrics: MergedLyricLine[] = originalParsed.map(
+    (lyric): MergedLyricLine => {
+      // 尝试找到时间戳匹配的翻译行
+      const translation: LyricLine | undefined = translatedParsed.find(
+        (tran) => tran.time === lyric.time,
+      );
+      const romaLrc: LyricLine | undefined = romaParsed.find(
+        (tran) => tran.time === lyric.time,
+      );
+      // 如果找到翻译，添加到原文对象中
+      return {
+        ...lyric,
+        translation: translation?.text,
+        romaLrc: romaLrc?.text,
+      };
+    },
+  );
 
   return {
     lines: mergedLyrics,

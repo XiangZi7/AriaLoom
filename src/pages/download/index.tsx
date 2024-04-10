@@ -18,7 +18,11 @@ const DownLoad = () => {
 
   // 处理下载、暂停和下载完成的逻辑
   const HandleAction = (id: number, action: string) => {
-    setMusics(musics.map((music) => (music.id === id ? { ...music, status: action } : music)));
+    setMusics(
+      musics.map((music) =>
+        music.id === id ? { ...music, status: action } : music,
+      ),
+    );
   };
   return (
     <div className="p-4 flex flex-col ">
@@ -27,7 +31,11 @@ const DownLoad = () => {
           key={music.id}
           className="shadow bg-default-400/20 dark:bg-default-500/30 rounded-2xl w-full py-4 px-8 mb-4 flex items-center justify-between"
         >
-          <img src="https://via.placeholder.com/60" alt="Music Icon" className="w-12 h-12 object-cover" />
+          <img
+            src="https://via.placeholder.com/60"
+            alt="Music Icon"
+            className="w-12 h-12 object-cover"
+          />
           <div className="flex flex-col ml-4 mr-auto">
             <p className="text-lg font-semibold">
               {music.name}.{music.type}
@@ -52,7 +60,12 @@ const DownLoad = () => {
             className="data-[hover]:bg-foreground/10"
             radius="full"
             variant="light"
-            onClick={() => HandleAction(music.id, music.status === 'download' ? 'pause' : 'completed')}
+            onClick={() =>
+              HandleAction(
+                music.id,
+                music.status === 'download' ? 'pause' : 'completed',
+              )
+            }
           >
             <Icon
               icon={

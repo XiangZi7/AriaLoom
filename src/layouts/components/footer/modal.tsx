@@ -1,4 +1,12 @@
-import { useEffect, MouseEventHandler, useRef, forwardRef, useImperativeHandle, CSSProperties, useState } from 'react';
+import {
+  useEffect,
+  MouseEventHandler,
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+  CSSProperties,
+  useState,
+} from 'react';
 
 import { Icon } from '@iconify/react';
 // eslint-disable-next-line import/order
@@ -64,7 +72,8 @@ const PlayerModal = forwardRef((_props, ref) => {
       const activeLyricHeight = activeLyricRef.current.offsetHeight;
       const activeLyricTop = activeLyricRef.current.offsetTop;
 
-      const scrollTo = activeLyricTop - containerHeight / 2 + activeLyricHeight / 2;
+      const scrollTo =
+        activeLyricTop - containerHeight / 2 + activeLyricHeight / 2;
       lyricsContainerRef.current.scrollTo({
         top: scrollTo,
         behavior: 'smooth', // 平滑滚动
@@ -74,17 +83,32 @@ const PlayerModal = forwardRef((_props, ref) => {
 
   return (
     <>
-      <Modal hideCloseButton isOpen={isOpen} onOpenChange={onOpenChange} size="full">
+      <Modal
+        hideCloseButton
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        size="full"
+      >
         <ModalContent>
           {(onClose: MouseEventHandler<SVGSVGElement> | undefined) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
                 <div className="flex items-center justify-between">
-                  <Icon icon="material-symbols:arrow-back-ios" className="cursor-pointer" onClick={onClose} />
+                  <Icon
+                    icon="material-symbols:arrow-back-ios"
+                    className="cursor-pointer"
+                    onClick={onClose}
+                  />
                   <div className="flex gap-2 items-center">
-                    <Icon icon="material-symbols:bluetooth" className="text-lg" />
+                    <Icon
+                      icon="material-symbols:bluetooth"
+                      className="text-lg"
+                    />
                     <Icon icon="material-symbols:wifi" className="text-lg" />
-                    <Icon icon="ic:baseline-battery-charging-80" className="text-lg" />
+                    <Icon
+                      icon="ic:baseline-battery-charging-80"
+                      className="text-lg"
+                    />
                     <Avatar
                       className="transition-transform"
                       color="secondary"
@@ -99,12 +123,19 @@ const PlayerModal = forwardRef((_props, ref) => {
                 <div className="flex flex-1 items-center justify-center">
                   <div className="flex-[50%] max-w-[50%]  md:flex hidden   h-full items-center justify-center">
                     <div className="items-center justify-center flex flex-col h-full w-full">
-                      <div className={`music-player-container ${isPlaying ? 'is-playing' : ''}`}>
+                      <div
+                        className={`music-player-container ${isPlaying ? 'is-playing' : ''}`}
+                      >
                         <div className="album">
                           <div className="album-art" style={albumArtStyle} />
                           <div
                             className="vinyl"
-                            style={{ ...albumArtStyle, animationPlayState: isPlaying ? 'running' : 'paused' }}
+                            style={{
+                              ...albumArtStyle,
+                              animationPlayState: isPlaying
+                                ? 'running'
+                                : 'paused',
+                            }}
                           />
                         </div>
                       </div>
@@ -119,7 +150,10 @@ const PlayerModal = forwardRef((_props, ref) => {
                             variant="light"
                             onPress={prevTrack}
                           >
-                            <Icon icon="solar:skip-previous-bold" className="text-xl" />
+                            <Icon
+                              icon="solar:skip-previous-bold"
+                              className="text-xl"
+                            />
                           </Button>
                           {/* 暂停、播放 */}
                           <Button
@@ -130,7 +164,11 @@ const PlayerModal = forwardRef((_props, ref) => {
                             onClick={togglePlayPause}
                           >
                             <Icon
-                              icon={isPlaying ? 'ic:round-pause-circle' : 'ic:round-play-circle'}
+                              icon={
+                                isPlaying
+                                  ? 'ic:round-pause-circle'
+                                  : 'ic:round-play-circle'
+                              }
                               className="text-4xl"
                             />
                           </Button>
@@ -142,7 +180,10 @@ const PlayerModal = forwardRef((_props, ref) => {
                             variant="light"
                             onPress={nextTrack}
                           >
-                            <Icon icon="solar:skip-previous-bold" className="transform scale-x-[-1] text-xl" />
+                            <Icon
+                              icon="solar:skip-previous-bold"
+                              className="transform scale-x-[-1] text-xl"
+                            />
                           </Button>
                         </div>
                         {/* 进度条 */}
@@ -154,7 +195,8 @@ const PlayerModal = forwardRef((_props, ref) => {
                             aria-label="Music progress"
                             classNames={{
                               track: 'bg-default-500/30',
-                              thumb: 'w-4 h-4 after:w-2 after:h-2 after:bg-foreground',
+                              thumb:
+                                'w-4 h-4 after:w-2 after:h-2 after:bg-foreground',
                             }}
                             color="foreground"
                             value={currentTime}
@@ -171,22 +213,34 @@ const PlayerModal = forwardRef((_props, ref) => {
                   </div>
                   <div className="flex-[50%] max-w-[50%] h-full items-center justify-center ">
                     <div className="items-center justify-center flex h-full">
-                      <ScrollShadow hideScrollBar className="h-[600px] w-full text-center " ref={lyricsContainerRef}>
+                      <ScrollShadow
+                        hideScrollBar
+                        className="h-[600px] w-full text-center "
+                        ref={lyricsContainerRef}
+                      >
                         <ul className="transform ease-in-out">
                           {lyrics &&
                             lyrics.lines &&
                             lyrics.lines.map((line, index) => (
                               <li
-                                ref={index === activeLyricIndex ? activeLyricRef : null}
+                                ref={
+                                  index === activeLyricIndex
+                                    ? activeLyricRef
+                                    : null
+                                }
                                 className={`text-small py-1 transition-all duration-300 ease-in-out ${index === activeLyricIndex ? ' scale-105 font-semibold' : 'text-foreground/50'} font-body`}
                                 key={line.time}
                               >
                                 <p>{line.text}</p>
                                 {isTranslation && line.translation && (
-                                  <p className="text-xs text-foreground/70">{line.translation}</p>
+                                  <p className="text-xs text-foreground/70">
+                                    {line.translation}
+                                  </p>
                                 )}
                                 {isRomaLrc && line.romaLrc && (
-                                  <p className="text-xs text-foreground/70">{line.romaLrc}</p>
+                                  <p className="text-xs text-foreground/70">
+                                    {line.romaLrc}
+                                  </p>
                                 )}
                               </li>
                             ))}
@@ -197,10 +251,20 @@ const PlayerModal = forwardRef((_props, ref) => {
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Switch size="sm" isSelected={isTranslation} onValueChange={setIsTranslation} color="primary">
+                <Switch
+                  size="sm"
+                  isSelected={isTranslation}
+                  onValueChange={setIsTranslation}
+                  color="primary"
+                >
                   翻译
                 </Switch>
-                <Switch size="sm" isSelected={isRomaLrc} onValueChange={setIsRomalrc} color="primary">
+                <Switch
+                  size="sm"
+                  isSelected={isRomaLrc}
+                  onValueChange={setIsRomalrc}
+                  color="primary"
+                >
                   罗马音
                 </Switch>
               </ModalFooter>
