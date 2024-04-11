@@ -1,27 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* .theme-nord {
-  --color-primary: 94 129 172;
-  --color-secondary: 129 161 193;
-  --color-background: 46 52 64;
-  --color-foreground: 216 222 233;
-  --color-separator: 76 86 106;
-}
-
-.theme-solarizedDark {
-  --color-primary: 38 139 210;
-  --color-secondary: 203 75 22;
-  --color-background: 0 43 54;
-  --color-foreground: 238 232 213;
-  --color-separator: 131 148 150;
-}
-
-.theme-solarizedLight {
-  --color-primary: 211 54 130;
-  --color-secondary: 133 153 0;
-  --color-background: 253 246 227;
-  --color-foreground: 101 123 131;
-  --color-separator: 88 110 117;
-} */

@@ -101,7 +101,7 @@ const Search = () => {
               onClick={() => Navigate(`/playListDetail/${song.id}`)}
             >
               <Image
-                src={song.coverImgUrl + '?param=300y300'}
+                src={song.coverImgUrl + '?param=500y500'}
                 alt={song.name}
                 className=""
               />

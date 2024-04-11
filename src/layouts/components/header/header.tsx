@@ -52,11 +52,17 @@ const Header = () => {
                 </span>
               </h1>
               <div className="pl-16">
-                <Icon
-                  icon="ic:round-arrow-back-ios"
-                  className="cursor-pointer"
-                  onClick={() => navigate(-1)}
-                />
+                <Button
+                  isIconOnly
+                  className="bg-default-400/20 dark:bg-default-500/20"
+                  variant="shadow"
+                  onPress={() => navigate(-1)}
+                >
+                  <Icon
+                    icon="ic:round-arrow-back-ios"
+                    className="cursor-pointer"
+                  />
+                </Button>
               </div>
             </div>
           </NavbarBrand>

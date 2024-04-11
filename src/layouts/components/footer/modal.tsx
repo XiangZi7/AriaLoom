@@ -44,7 +44,7 @@ const PlayerModal = forwardRef((_props, ref) => {
   } = useSharedMusicPlayer();
   // 使用类型断言创建包含自定义CSS变量的样式对象
   const albumArtStyle: CSSProperties = {
-    '--track-cover-url': `url(${track.cover})`,
+    '--track-cover-url': `url(${track.cover}?param=550y550)`,
   } as CSSProperties;
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   // 通过useImperativeHandle暴露特定的方法给父组件

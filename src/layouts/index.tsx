@@ -15,7 +15,7 @@ const DefaultLayout = () => {
         <div className="jumbo absolute -inset-[10px] opacity-20  dark:opacity-50" />
       </div>
       <Header />
-      <div className="flex flex-1 overflow-hidden z-10">
+      <section className="flex flex-1 overflow-hidden z-10">
         <aside className="w-64 overflow-auto p-4 md:flex hidden">
           <SideBar />
         </aside>
@@ -25,7 +25,7 @@ const DefaultLayout = () => {
             <Outlet />
           </ScrollShadow>
         </main>
-      </div>
+      </section>
       <Footer />
     </div>
   );

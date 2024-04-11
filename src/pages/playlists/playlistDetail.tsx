@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { Avatar, Chip } from '@nextui-org/react';
+import { Icon } from '@iconify/react';
+import { Avatar, Button, Chip } from '@nextui-org/react';
 
 import TablePro from '@/components/TablePro';
 
@@ -48,7 +49,13 @@ function PlaylistDetailJZ() {
               </>
             )}
           </div>
-
+          {/*更新时间*/}
+          <div className="text-gray-500 text-small">
+            最后更新时间:
+            {new Date(
+              playlistData?.createTime ?? 0,
+            ).toLocaleDateString()} - {playlistData?.trackCount} 首
+          </div>
           {/* 标签 */}
           {playlistData?.tags && playlistData?.tags.length > 0 && (
             <div className="flex flex-wrap mb-2 gap-2">
@@ -60,12 +67,24 @@ function PlaylistDetailJZ() {
             </div>
           )}
           {/*描述*/}
-          <p className="text-small">{playlistData?.description}</p>
-
+          <p className="text-small text-gray-500">
+            {playlistData?.description}
+          </p>
           {/* 创建时间 */}
-          <div className="text-sm mt-auto ">
-            创建时间:
-            {new Date(playlistData?.createTime ?? 0).toLocaleDateString()}
+          <div className="text-sm mt-auto text-gray-500 flex items-center justify-between">
+            <Button
+              startContent={
+                <Icon icon="ic:round-play-circle" className="text-xl" />
+              }
+              color="secondary"
+              variant="shadow"
+            >
+              播放
+            </Button>
+            <div>
+              创建时间:
+              {new Date(playlistData?.createTime ?? 0).toLocaleDateString()}
+            </div>
           </div>
         </div>
       </div>

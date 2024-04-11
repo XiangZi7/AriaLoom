@@ -33,7 +33,7 @@ const Mini = () => {
                   className="object-cover"
                   height={200}
                   shadow="md"
-                  src={track.cover + '?param=185y185'}
+                  src={track.cover + '?param=455y455'}
                   width="100%"
                 />
               </div>

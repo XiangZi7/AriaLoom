@@ -43,17 +43,17 @@ const TablePro: FC<TableProProps> = ({ className, SongsData }) => {
               className="hover:bg-default-400/20 hover:dark:bg-default-500/30 hover:opacity-80 p-2 mb-2 rounded-xl  flex items-center gap-2 transition-all duration-300 ease-in-out"
             >
               <div className="flex flex-[40%] max-w-[40%] truncate">
-                <div className="flex gap-2">
-                  <div className="flex-none w-10 h-10">
+                <div className="flex gap-3">
+                  <div className="flex-none w-12 h-12">
                     <Avatar
-                      src={song.al.picUrl}
+                      src={song.al.picUrl + '?param=224y224'}
                       alt={song.name}
                       radius="sm"
                       className="w-full h-full"
                     />
                   </div>
                   {/* 将标题和歌手信息放在同一个容器内以使它们垂直排列 */}
-                  <div className="flex flex-col justify-center ">
+                  <div className="flex flex-col justify-center gap-1">
                     {/* 为标题指定宽度和省略符号 */}
                     <div className="text-small ">{song.name}</div>
                     <div className="text-xs text-gray-500 ">
