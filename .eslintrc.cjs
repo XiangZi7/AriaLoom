@@ -22,7 +22,7 @@ module.exports = {
       version: 'detect',
     },
   },
-  ignorePatterns: ['dist', 'node_modules', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', 'node_modules', '.eslintrc.cjs','commitlint.config'],
   parser: '@typescript-eslint/parser',
   plugins: ['react', '@typescript-eslint', 'react-refresh', 'import', 'prettier'],
   rules: {
