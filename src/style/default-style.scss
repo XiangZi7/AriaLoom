@@ -1,101 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 :root {
-    --yx-base-font: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto, "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  --yx-base-font: Inter, sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto, "PingFang SC", "miui", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+  --total: 12;
+  --i: 3;
+  --r-offset: -0.25turn;
+  --r-amount: 1turn;
 }
 
 html,
 body {
-    font-family: var(--yx-base-font);
+  font-family: var(--yx-base-font);
 }
 
 @keyframes jumbo {
-    from {
-        background-position: 50% 50%, 50% 50%;
-    }
+  from {
+    background-position: 50% 50%, 50% 50%;
+  }
 
-    to {
-        background-position: 350% 50%, 350% 50%;
-    }
+  to {
+    background-position: 350% 50%, 350% 50%;
+  }
 }
 
 .jumbo {
-    --stripes: repeating-linear-gradient(100deg,
-            #fff 0%,
-            #fff 7%,
-            transparent 10%,
-            transparent 12%,
-            #fff 16%);
-    --stripesDark: repeating-linear-gradient(100deg,
-            #000 0%,
-            #000 7%,
-            transparent 10%,
-            transparent 12%,
-            #000 16%);
-    --rainbow: repeating-linear-gradient(100deg,
-            #60a5fa 10%,
-            #e879f9 15%,
-            #60a5fa 20%,
-            #5eead4 25%,
-            #60a5fa 30%);
-    background-image: var(--stripes), var(--rainbow);
-    background-size: 300%, 200%;
-    background-position: 50% 50%, 50% 50%;
+  --stripes: repeating-linear-gradient(100deg,
+          #fff 0%,
+          #fff 7%,
+          transparent 10%,
+          transparent 12%,
+          #fff 16%);
+  --stripesDark: repeating-linear-gradient(100deg,
+          #000 0%,
+          #000 7%,
+          transparent 10%,
+          transparent 12%,
+          #000 16%);
+  --rainbow: repeating-linear-gradient(100deg,
+          #60a5fa 10%,
+          #e879f9 15%,
+          #60a5fa 20%,
+          #5eead4 25%,
+          #60a5fa 30%);
+  background-image: var(--stripes), var(--rainbow);
+  background-size: 300%, 200%;
+  background-position: 50% 50%, 50% 50%;
 
-    filter: blur(10px) invert(100%);
+  filter: blur(10px) invert(100%);
 
-    mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+  mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
 
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .jumbo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: var(--stripes), var(--rainbow);
-    background-size: 200%, 100%;
-    animation: jumbo 60s linear infinite;
-    background-attachment: fixed;
-    mix-blend-mode: difference;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--stripes), var(--rainbow);
+  background-size: 200%, 100%;
+  animation: jumbo 60s linear infinite;
+  background-attachment: fixed;
+  mix-blend-mode: difference;
 }
 
 .dark .jumbo {
-    background-image: var(--stripesDark), var(--rainbow);
-    filter: blur(10px) opacity(50%) saturate(200%);
+  background-image: var(--stripesDark), var(--rainbow);
+  filter: blur(10px) opacity(50%) saturate(200%);
 }
 
 .dark .jumbo::after {
-    background-image: var(--stripesDark), var(--rainbow);
+  background-image: var(--stripesDark), var(--rainbow);
 }
 
 
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-    border-radius: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: 226, 226, 226;
-    background-color: rgb(206, 206, 206);
-    border-radius: 10px;
-}
-.dark ::-webkit-scrollbar-thumb {
-    background: 226, 226, 226;
-    background-color: rgb(66, 66, 66);
-    border-radius: 10px;
+  background: 226, 226, 226;
+  background-color: rgb(206, 206, 206);
+  border-radius: 10px;
 }
 
-.bg-line{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-    background: #fd6cc7;
-    background: linear-gradient(90deg, #fd6cc7, #e885fa 32%, #fbbcaa);
-    border-radius: 14px;
-    margin-top: 50px;
-    height: 170px;
-    position: relative;
+.dark ::-webkit-scrollbar-thumb {
+  background: 226, 226, 226;
+  background-color: rgb(66, 66, 66);
+  border-radius: 10px;
+}
+
+.bg-line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  background: #fd6cc7;
+  background: linear-gradient(90deg, #fd6cc7, #e885fa 32%, #fbbcaa);
+  border-radius: 14px;
+  margin-top: 50px;
+  height: 170px;
+  position: relative;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px); /* 注意这里是正值，与原动画相反 */
+  }
 }

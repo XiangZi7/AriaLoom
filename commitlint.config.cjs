@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // @see: https://cz-git.qbenben.com/zh/guide
 const fs = require('fs');
 const path = require('path');

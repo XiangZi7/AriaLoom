@@ -1,5 +1,7 @@
 import { Button, Image } from '@nextui-org/react';
 
+import ProFile from '@/components/profile';
+
 import { importImage } from '@/utils/hrefIamge';
 
 export default function Home() {
@@ -9,11 +11,9 @@ export default function Home() {
         <div className="space-y-6 max-w-lg">
           <h1 className="text-6xl font-bold leading-tight">
             <span className="block">Theme</span>
-            <span className="block bg-[#bd1e59] text-white px-2 ">Week</span>
+            <span className="block text-[#E730CA] px-2 ">Week</span>
             <span className="block">Animation</span>
-            <span className="block bg-orange-500 text-white px-2 ">
-              Information
-            </span>
+            <span className="block text-[#E730CA]  px-2 ">Information！</span>
           </h1>
           <p className="dark:text-gray-300 text-gray-500 text-base">
             Beyond the Boundary (Japanese: 境界の彼方, Hepburn: Kyōkai no
@@ -26,7 +26,17 @@ export default function Home() {
             girl named Mirai Kuriyama from committing suicide, he learns that
             she is a spirit world warrior and their lives become intertwined.
           </p>
-          <Button className="bg-orange-500 text-white">View album</Button>
+          <div className="space-x-2">
+            <Button className="bg-[#E730CA] xl:w-40 py-2.5 font-semibold leading-6 text-sm xl:text-base  hover:text-white text-center transition-colors text-white">
+              View album
+            </Button>
+            <Button
+              className="border-[#E730CA] hover:border-[#E730CA]/30 bg-transparent  w-32 xl:w-40 py-2.5 font-semibold leading-6 text-sm xl:text-base text-[#E730CA] hover:text-white text-center transition-colors"
+              variant="ghost"
+            >
+              View album
+            </Button>
+          </div>
           <div className="flex space-x-4">
             <Image
               isZoomed
@@ -55,7 +65,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex-1 flex items-center justify-center gap-4">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 motion-safe:animate-float">
             <Image
               isBlurred
               isZoomed
@@ -69,8 +79,14 @@ export default function Home() {
               src={importImage('home3.png')}
             />
           </div>
-          <div className="h-auto max-w-md">
-            <Image isBlurred isZoomed src={importImage('home1.png')} />
+          <div className="h-auto max-w-md motion-safe:animate-float space-y-5">
+            <ProFile />
+            <Image
+              width={340}
+              isBlurred
+              isZoomed
+              src={importImage('home1.png')}
+            />
           </div>
         </div>
       </div>
