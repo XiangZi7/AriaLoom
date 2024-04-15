@@ -3,12 +3,11 @@ import { useRef } from 'react';
 import { Icon } from '@iconify/react';
 import { Button, Slider, Avatar } from '@nextui-org/react';
 
-import { useSharedMusicPlayer } from '@/components/musicPlayerContext';
-
 import CurrentPlay from './currentplay';
 import Modal from './modal';
 import Volume from './volume';
 
+import { useSharedMusicPlayer } from '@/context/MusicPlayerContext.tsx';
 import { ModalHandle } from '@/model/interface/player';
 const Footer = () => {
   const ModalRef = useRef<ModalHandle>(null);

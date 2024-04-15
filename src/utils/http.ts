@@ -29,7 +29,7 @@ instance.interceptors.request.use(
     // 添加或修改params
     Object.assign(config.params, {
       timestamp: Date.now(),
-      realIP: '116.25.146.177',
+      realIP: '106.110.180.75',
     });
     // 开启进度条
     NProgress.start();

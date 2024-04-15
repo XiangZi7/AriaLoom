@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Icon } from '@iconify/react';
 import { Tooltip, Slider } from '@nextui-org/react';
 
-import { useSharedMusicPlayer } from '@/components/musicPlayerContext';
+import { useSharedMusicPlayer } from '@/context/MusicPlayerContext.tsx';
 
 interface VolumeProps {
   className?: string;

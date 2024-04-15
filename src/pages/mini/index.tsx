@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Icon } from '@iconify/react';
 import { Card, CardBody, Image, Button, Slider } from '@nextui-org/react';
 
-import { useSharedMusicPlayer } from '@/components/musicPlayerContext';
+import { useSharedMusicPlayer } from '@/context/MusicPlayerContext.tsx';
 
 const Mini = () => {
   const [liked, setLiked] = useState(false);

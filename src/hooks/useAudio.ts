@@ -1,10 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 
 import { lyric } from '@/api';
+import { useNotification } from '@/context/NotificationContext';
 import { PlayMode } from '@/model/enum/PlayMode';
 import { LyricData } from '@/model/interface/player';
-
 export function useMusicPlayer() {
+  // 全局Notification通知
+  const { addNotification } = useNotification();
+
   const audioRef = useRef(new Audio());
   const { trackList, currentIndex, updateCurrentIndex } = audioStore(
     (state) => ({
@@ -48,6 +51,7 @@ export function useMusicPlayer() {
   useEffect(() => {
     if (trackList.length > 0) {
       audioRef.current.src = trackList[currentIndex].source;
+      setIsPlaying(true);
       // 这里获取并设置歌词
       lyric(trackList[currentIndex].id)
         .then((result) => {
@@ -71,6 +75,7 @@ export function useMusicPlayer() {
   // 控制播放和暂停
   useEffect(() => {
     if (isPlaying) {
+      addNotification('我是测试', 'info');
       audioRef.current.play();
     } else {
       audioRef.current.pause();

@@ -4,7 +4,7 @@ import { createContext, useContext } from 'react';
 import {
   MusicPlayerState,
   MusicPlayerProviderProps,
-} from '@/model/interface/store/audio';
+} from '@/model/interface/store/audio.ts';
 
 // 全局共享音乐播放器状态
 const MusicPlayerContext = createContext<MusicPlayerState | undefined>(

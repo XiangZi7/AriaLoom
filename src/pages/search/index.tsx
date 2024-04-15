@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 
 import { Icon } from '@iconify/react';
-import { Image, Pagination, Tab, Tabs } from '@nextui-org/react';
+import { Image, Pagination, Tab, Tabs, Tooltip } from '@nextui-org/react';
 
 import TablePro from '@/components/TablePro';
 
@@ -103,12 +103,13 @@ const Search = () => {
               <Image
                 src={song.coverImgUrl + '?param=500y500'}
                 alt={song.name}
-                className=""
               />
               <div className="text-sm text-center mt-2">{song.name}</div>
-              <p className="text-center text-default-500 text-xs">
-                {song.description}
-              </p>
+              <Tooltip placement="bottom" content={song.description}>
+                <p className="text-center text-default-500 text-xs line-clamp-2">
+                  {song.description}
+                </p>
+              </Tooltip>
             </div>
           ))}
         </div>

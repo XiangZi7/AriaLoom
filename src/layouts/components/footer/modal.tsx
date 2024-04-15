@@ -27,7 +27,7 @@ import {
 import './modal.scss';
 import { useShallow } from 'zustand/react/shallow';
 
-import { useSharedMusicPlayer } from '@/components/musicPlayerContext';
+import { useSharedMusicPlayer } from '@/context/MusicPlayerContext.tsx';
 
 const PlayerModal = forwardRef((_props, ref) => {
   const {
