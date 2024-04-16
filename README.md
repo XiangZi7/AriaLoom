@@ -5,11 +5,13 @@
 
 AriaLoom - “Aria”（咏叹调）和“Loom”（织布机）结合，传递出编织音乐丝线，创造美妙旋律的概念。
 
-本项目用于巩固练习用，代码比较简洁，适用于对react18入门的同学。技术栈采用Vite5 、React18、TS
+本项目用于巩固练习用，代码比较简洁，适用于对react18入门的同学。技术栈采用Vite5 、React18、TS。
+
+Vue3：https://github.com/XiangZi7/KM-Music-Player
 
 ### 在线预览 👀
 
-Netlify：https://arialoom.netlify.app/#/
+Netlify：https://arialoom.netlify.app/#/    （可能需要科学上网
 
 
 ### 代码仓库 ⭐
@@ -23,11 +25,10 @@ GitHub：https://github.com/XiangZi7/AriaLoom
 - 歌词滚动显示
 - 网易云二维码登录
 - 暗黑模式
+- .......
 
 
 ### 安装使用步骤 📔
-
-*   Clone
 
 # Github
 
@@ -35,8 +36,12 @@ GitHub：https://github.com/XiangZi7/AriaLoom
 
 *   Install：
     `yarn`
+
+
 *   Run：
     `yarn dev`
+
+
 *   文档说明
     <https://neteasecloudmusicapi.vercel.app/#/>  （可能需魔法上网）
 
