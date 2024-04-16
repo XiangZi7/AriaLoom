@@ -36,6 +36,9 @@ GitHub：https://github.com/XiangZi7/AriaLoom
 
 `git clone https://github.com/XiangZi7/AriaLoom.git`
 
+* 修改.env文件，配置自己的接口（VITE_API_URL
+
+
 *   Install：
     `yarn`
 
