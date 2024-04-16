@@ -29,9 +29,9 @@ const Notification: FC<NotificationProps> = ({
     setShow(true);
     // 设置3秒后自动调用onClose回调函数，并隐藏通知
     const timer = setTimeout(() => {
-      setShow(false);
-      // 设置一个额外的定时器确保滑出动画完成后再执行onClose
-      setTimeout(onClose, 300); // 假设动画持续300ms
+      // setShow(false);
+      // // 设置一个额外的定时器确保滑出动画完成后再执行onClose
+      // setTimeout(onClose, 300); // 假设动画持续300ms
     }, 3000);
 
     // 组件卸载时清除定时器
@@ -57,7 +57,13 @@ const Notification: FC<NotificationProps> = ({
         <Icon icon="material-symbols:close" />
       </Button>
       <div className="px-8 py-4 mx-4">
-        <p className="font-bold">{title ?? 'Notification'}</p>
+        <p className="font-bold flex items-center gap-1">
+          <Icon
+            icon="icon-park-outline:success"
+            className="text-green-600 text-xl"
+          />
+          {title ?? 'Notification'}
+        </p>
         <p>{message}</p>
       </div>
     </div>

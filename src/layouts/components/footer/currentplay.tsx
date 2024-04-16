@@ -8,13 +8,7 @@ import {
 import { Button } from '@nextui-org/react';
 import './modal.scss';
 const Content = () => {
-  const { trackList, updateCurrentIndex, currentIndex } = audioStore(
-    (state) => ({
-      trackList: state.trackList,
-      updateCurrentIndex: state.updateCurrentIndex,
-      currentIndex: state.currentIndex,
-    }),
-  );
+  const { trackList, updateCurrentIndex, currentIndex } = audioStore();
 
   return (
     <div className="w-[400px] h-[400px] ">
