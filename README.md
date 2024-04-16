@@ -1,4 +1,5 @@
-![QQ截图20240410104510](https://github.com/XiangZi7/AriaLoom/assets/67356803/68e8c3f1-043d-435f-ac06-26a1ab61d5b6)
+![QQ截图20240416132331](https://github.com/XiangZi7/AriaLoom/assets/67356803/c3390232-a251-47cd-b711-19a244503336)
+
 
 ### 介绍 📖
 
