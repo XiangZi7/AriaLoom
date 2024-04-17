@@ -7,6 +7,7 @@ AriaLoom - “Aria”（咏叹调）和“Loom”（织布机）结合，传递�
 
 本项目用于巩固练习用，代码比较简洁，适用于对react18入门的同学。技术栈采用Vite5 、React18、TS。
 
+注意：本项目不提供测试接口，需自行搭建
 
 
 Vue3：https://github.com/XiangZi7/KM-Music-Player
